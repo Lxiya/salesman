@@ -1,23 +1,46 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+	<div>
+		<router-view></router-view>
+		<sale-footer></sale-footer>
+	</div>
 </template>
 
 <script>
+import Footer from "components/common/Footer";
+import Login from "components/login/Login";
+
 export default {
-  name: 'App'
-}
+	name: "App",
+	components: {
+		"sale-footer": Footer,
+		"sale-login": Login
+	},
+	mounted() {
+		let rem = window.screen.width;
+		document.documentElement.style.fontSize = 100 * (rem / 750) + "px";
+	}
+};
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+html {
+	font-size: 100px;
+}
+body {
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+h1 {
+	margin: 0;
+}
+a{
+	text-decoration: none;
+	color: #666666
+}
+.header-banner .mint-swipe-indicators{
+	bottom: 0.3rem
+}
+p{
+	margin: 0
 }
 </style>
