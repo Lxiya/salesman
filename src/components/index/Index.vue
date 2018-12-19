@@ -2,6 +2,7 @@
 	<div>
 		<div class="index">
 			<sale-header></sale-header>
+			<sale-order-management></sale-order-management>
 		</div>
 	</div>
 </template>
@@ -23,7 +24,7 @@ export default {
 div.index{
 	background-color #f2f2f2
 	min-width 100%
-	height 2000px
+	// height 2000px
 	overflow-y scroll
 	overflow-x hidden
 }

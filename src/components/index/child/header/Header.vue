@@ -3,13 +3,13 @@
 		<div class="header-banner">
 			<mt-swipe :auto="auto">
 				<mt-swipe-item>
-					<img src="static/images/header-banner.png" alt>
+					<img src="/static/images/header-banner.png" alt>
 				</mt-swipe-item>
 				<mt-swipe-item>
-					<img src="static/images/header-banner.png" alt>
+					<img src="/static/images/header-banner.png" alt>
 				</mt-swipe-item>
 				<mt-swipe-item>
-					<img src="static/images/header-banner.png" alt>
+					<img src="/static/images/header-banner.png" alt>
 				</mt-swipe-item>
 			</mt-swipe>
 			<div class="income-order">
@@ -53,6 +53,7 @@ export default {
 <style lang="stylus" scoped>
 header
 	min-height 6.57rem
+	margin-bottom 0.26rem
 	.mint-swipe-indicators
 		bottom 0.5rem
 	div.header-banner

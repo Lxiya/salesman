@@ -19,7 +19,7 @@ export default {
 <style lang="stylus" scoped>
 .mint-header
 	height auto
-	padding-top 0.59rem
+	padding-top 0.56rem
 	padding-bottom 0.28rem
 	background-color #1f69ff
 	font-size 0.38rem
