@@ -15,23 +15,23 @@
 			</div>
 			<div class="info-content">
 				<div class="content-operation">
-					<mt-cell title="标题文字" to="//github.com" is-link>
-						<img slot="icon" src="" width="24" height="24">
+					<mt-cell title="修改密码" to="/changePassword" is-link>
+						<img slot="icon" src="/static/images/change-password.png" class="oper-icon">
 					</mt-cell>
 				</div>
 				<div class="content-operation">
-					<mt-cell title="标题文字" to="//github.com" is-link>
-						<img slot="icon" src="" width="24" height="24">
+					<mt-cell title="清除缓存" to="//github.com" is-link>
+						<img slot="icon" src="/static/images/clear-cache.png" class="oper-icon clear-icon">
 					</mt-cell>
 				</div>
 				<div class="content-operation">
-					<mt-cell title="标题文字" to="//github.com" is-link>
-						<img slot="icon" src="" width="24" height="24">
+					<mt-cell title="如何使用" to="//github.com" is-link>
+						<img slot="icon" src="/static/images/how-use.png" class="oper-icon">
 					</mt-cell>
 				</div>
 				<div class="content-operation">
-					<mt-cell title="标题文字" to="//github.com" is-link>
-						<img slot="icon" src="" width="24" height="24">
+					<mt-cell title="关于我们" to="//github.com" is-link>
+						<img slot="icon" src="/static/images/about.png" class="oper-icon about-icon">
 					</mt-cell>
 				</div>
 			</div>
@@ -87,6 +87,27 @@ export default {
 			border-bottom 0.01rem rgba(236,236,236,0.5)
 			&:last-child{
 				border-bottom 0 none
+			}
+			.mint-cell{
+				min-height 1.07rem
+			}
+			.mint-cell-title{
+				display flex
+				align-items flex-end
+			}
+			img.oper-icon{
+				display inline-block
+				width 0.35rem
+				height 0.41rem
+				margin-right 0.33rem
+				&.clear-icon{
+					width 0.38rem
+					height 0.36rem
+				}
+				&.about-icon{
+					width 0.38rem
+					height 0.37rem
+				}
 			}
 		}
 	}

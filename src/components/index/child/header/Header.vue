@@ -15,13 +15,15 @@
 			<div class="income-order">
 				<div class="income-order-show">
 					<div class="order-number">
-						<div class="number-show">
-							<h1 class="number-text">今日有效订单</h1>
-							<p class="number">
-								118
-								<span class="unit">单</span>
-							</p>
-						</div>
+						<router-link to="/currentOrder">
+							<div class="number-show">
+								<h1 class="number-text">今日有效订单</h1>
+								<p class="number">
+									118
+									<span class="unit">单</span>
+								</p>
+							</div>
+						</router-link>
 					</div>
 					<div class="split"></div>
 					<div class="income-number">
@@ -78,6 +80,8 @@ header
 			min-height 2.42rem
 			background-color #fff
 			border-radius 0.3rem
+			a
+				color #000
 			div.split
 				width 1px
 				height 2.08rem

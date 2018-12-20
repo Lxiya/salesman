@@ -45,4 +45,10 @@ a{
 p{
 	margin: 0
 }
+.mintui {
+	font-size: 0.42rem
+}
+.order .mint-tab-item-label{
+	font-size: 0.28rem
+}
 </style>

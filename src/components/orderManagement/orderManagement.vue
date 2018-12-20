@@ -6,38 +6,54 @@
 			</div>
 			<div class="management-icon">
 				<div class="icon-list">
-					<sale-management-icon>
-						<i slot="icon-number">99</i>
-						<img src="/static/images/waiting-deliver.png" alt slot="icon-img">
-						<h1 slot="icon-name">待发货</h1>
-					</sale-management-icon>
-					<sale-management-icon>
-						<i slot="icon-number">99</i>
-						<img src="/static/images/finished-deliver.png" alt slot="icon-img">
-						<h1 slot="icon-name">已发货</h1>
-					</sale-management-icon>
-					<sale-management-icon>
-						<i slot="icon-number">99</i>
-						<img src="/static/images/finished-accpect.png" alt slot="icon-img">
-						<h1 slot="icon-name">已收货</h1>
-					</sale-management-icon>
+					<router-link to="/order">
+						<sale-management-icon>
+							<i slot="icon-number">99</i>
+							<img src="/static/images/waiting-deliver.png" alt slot="icon-img">
+							<h1 slot="icon-name">待发货</h1>
+						</sale-management-icon>
+					</router-link>
+
+					<router-link to="/order">
+						<sale-management-icon>
+							<i slot="icon-number">99</i>
+							<img src="/static/images/finished-deliver.png" alt slot="icon-img">
+							<h1 slot="icon-name">已发货</h1>
+						</sale-management-icon>
+					</router-link>
+
+					<router-link to="/order">
+						<sale-management-icon>
+							<i slot="icon-number">99</i>
+							<img src="/static/images/finished-accpect.png" alt slot="icon-img">
+							<h1 slot="icon-name">已收货</h1>
+						</sale-management-icon>
+					</router-link>
 				</div>
 				<div class="icon-list">
-					<sale-management-icon>
-						<i slot="icon-number">99</i>
-						<img src="/static/images/finished.png" alt slot="icon-img" class="finished">
-						<h1 slot="icon-name">已完成</h1>
-					</sale-management-icon>
-					<sale-management-icon>
-						<i slot="icon-number">99</i>
-						<img src="/static/images/closed.png" alt slot="icon-img">
-						<h1 slot="icon-name">已关闭</h1>
-					</sale-management-icon>
-					<sale-management-icon>
-						<i slot="icon-number">99</i>
-						<img src="/static/images/all-orders.png" alt slot="icon-img">
-						<h1 slot="icon-name">全部订单</h1>
-					</sale-management-icon>
+					<router-link to="/order">
+						<sale-management-icon>
+							<i slot="icon-number">99</i>
+							<img src="/static/images/finished.png" alt slot="icon-img" class="finished">
+							<h1 slot="icon-name">已完成</h1>
+						</sale-management-icon>
+					</router-link>
+
+					<router-link to="order">
+						<sale-management-icon>
+							<i slot="icon-number">99</i>
+							<img src="/static/images/closed.png" alt slot="icon-img">
+							<h1 slot="icon-name">已关闭</h1>
+						</sale-management-icon>
+					</router-link>
+
+					<router-link to="order">
+						<sale-management-icon>
+							<i slot="icon-number">99</i>
+							<img src="/static/images/all-orders.png" alt slot="icon-img">
+							<h1 slot="icon-name">全部订单</h1>
+						</sale-management-icon>
+					</router-link>
 				</div>
 			</div>
 		</div>
@@ -78,26 +94,22 @@ div.order-management
 			justify-content space-between
 			flex-wrap wrap
 			margin-bottom 0.71rem
-			&:last-child{
+			&:last-child
 				margin-bottom 0
-			}
-			.icon{
+			.icon
 				display flex
 				flex-direction column
 				align-items center
 				position relative
-				img{
+				img
 					display block
 					margin-bottom 0.22rem
-					&.finished{
+					&.finished
 						margin-left 0.12rem
-					}
-				}
-				h1{
+				h1
 					font-size 0.24rem
 					color #666666
-				}
-				i{
+				i
 					position absolute
 					right -0.19rem
 					top -0.15rem
@@ -107,8 +119,6 @@ div.order-management
 					font-style normal
 					font-size 0.23rem
 					color #fff
-				}
-			}
 </style>
 
 
