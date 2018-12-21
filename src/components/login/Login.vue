@@ -20,6 +20,7 @@
 </template>
 
 <script>
+import { Indicator } from "mint-ui";
 import Top from "components/common/Top";
 
 export default {
@@ -28,7 +29,8 @@ export default {
 		return {
 			title: "登录",
 			phoneNumber: "",
-			password: ""
+			password: "",
+			user: {}
 		};
 	},
 	components: {
@@ -36,13 +38,21 @@ export default {
 	},
 	methods: {
 		login() {
+			Indicator.open();
 			this.$http
 				.get("/app/sale/saleLogin", {
-					telePhone: "15866639709",
-					password: "654321"
+					params: {
+						telePhone: this.phoneNumber,
+						password: this.password
+					}
 				})
 				.then(reponse => {
-					console.log(reponse.body);
+					Indicator.close();
+					reponse = reponse.body;
+					this.user = reponse.data;
+					this.$store.commit("setUser", this.user);
+					// console.log(JSON.parse(sessionStorage.getItem("user")));
+					this.$router.push("/main/index");
 				});
 		}
 	}

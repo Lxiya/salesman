@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import VueX from 'vuex'
+import Vuex from 'vuex'
 import VueResource from 'vue-resource'
 import MintUI from 'mint-ui'
 
@@ -20,7 +20,7 @@ import OrderDetail from 'components/orderDetail/OrderDetail'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
-Vue.use(VueX)
+Vue.use(Vuex)
 Vue.use(MintUI)
 Vue.use(VueResource)
 
@@ -68,10 +68,25 @@ const router = new VueRouter({
   routes: routes,
   linkActiveClass: 'active'
 })
+
+const store = new Vuex.Store({
+  state: {
+    user: null
+  },
+  mutations: {
+    // 用户登录，保存登录后的信息
+    setUser(state, user) {
+      sessionStorage.setItem('user', JSON.stringify(user))
+      state.user = user
+    }
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

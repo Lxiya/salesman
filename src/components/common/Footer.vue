@@ -34,7 +34,7 @@ export default {
 		};
 	},
 	mounted(){
-		console.log(this.selected)
+		// console.log(this.selected)
 	}
 };
 </script>

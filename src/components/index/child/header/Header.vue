@@ -44,6 +44,9 @@
 <script>
 export default {
 	name: "Header",
+	props: {
+		userTel: String
+	},
 	data() {
 		return {
 			auto: 2000
