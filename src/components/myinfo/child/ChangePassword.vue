@@ -31,7 +31,7 @@ export default {
 			//控制样式
 			title: "修改密码",
 			showBack: true,
-			where: "/myinfo",
+			where: "main/myinfo",
 			// 控制数据绑定
 			password: "",
 			newPassword:'',

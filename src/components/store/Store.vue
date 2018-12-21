@@ -18,7 +18,7 @@
 
 <script>
 import Top from "components/common/Top";
-import StoreDetail from 'components/store/child/StoreDetail'
+import StoreDetail from "components/store/child/StoreDetail";
 
 export default {
 	name: "Store",
@@ -29,15 +29,13 @@ export default {
 	},
 	components: {
 		"sale-top": Top,
-		"sale-store-detail":StoreDetail
-
+		"sale-store-detail": StoreDetail
 	}
 };
 </script>
 
 <style lang="stylus" scoped>
-.store{
-	padding	1.34rem 0.24rem 1rem
-}
+.store
+	padding 1.34rem 0.24rem 1rem
 </style>
 

@@ -26,7 +26,7 @@ export default {
 			// 控制样式
 			title: "今日有效订单",
 			showBack: true,
-			where: "/index"
+			where: "main/index"
 		};
 	}
 };

@@ -4,13 +4,13 @@
 		<div class="login-form">
 			<div class="from-group">
 				<label for="phone-number">
-					<img src="./phone-number-icon.png" alt class="phone-number">
+					<img src="/static/images/phone-number-icon.png" alt class="phone-number">
 				</label>
 				<input placeholder="请输入手机号码" type="text" id="phone-number" v-model="phoneNumber">
 			</div>
 			<div class="from-group">
 				<label for="phone-number">
-					<img src="./password-icon.png" alt>
+					<img src="/static/images/password-icon.png" alt>
 				</label>
 				<input placeholder="请输入密码" type="password" id="password" v-model="password">
 			</div>
@@ -34,9 +34,16 @@ export default {
 	components: {
 		"sale-top": Top
 	},
-	methods:{
-		login(){
-			alert(this.phoneNumber)
+	methods: {
+		login() {
+			this.$http
+				.get("/app/sale/saleLogin", {
+					telePhone: "15866639709",
+					password: "654321"
+				})
+				.then(reponse => {
+					console.log(reponse.body);
+				});
 		}
 	}
 };
@@ -44,17 +51,19 @@ export default {
 
 <style lang="stylus" scoped>
 div.login-form
+	height 100vh
+	background-color #f8f8f8
 	padding 0 0.24rem
-	padding-top 0.48rem
+	padding-top 1.22rem
 	background-color #f8f8f8
 	div.from-group
 		display flex
 		justify-content space-between
 		align-items center
-		margin-bottom 0.67rem
+		padding-top 0.48rem
 		padding-left 0.15rem
 		padding-bottom 0.14rem
-		border-bottom 1px solid rgba(207,207,207,0.5)
+		border-bottom 1px solid rgba(207, 207, 207, 0.5)
 		label
 			margin-right 0.25rem
 			img
@@ -68,9 +77,10 @@ div.login-form
 			border 0 none
 			background-color transparent
 			flex 1
-			font-size 0.26rem
-			color #999999
+			font-size 0.3rem
+			color #000000
 .mint-button--primary
+	margin-top 0.64rem
 	height 0.89rem
 	background-color #1f69ff
 	font-size 0.28rem

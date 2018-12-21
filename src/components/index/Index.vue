@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import Footer from "components/common/Footer";
 import Header from 'components/index/child/header/Header'
 import OrderManagement from 'components/orderManagement/orderManagement'
 
@@ -15,7 +16,7 @@ export default {
 	name: "Index",
 	components: {
 		'sale-header':Header,
-		'sale-order-management':OrderManagement
+		'sale-order-management':OrderManagement,
 	}
 };
 </script>

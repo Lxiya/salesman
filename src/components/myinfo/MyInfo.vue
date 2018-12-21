@@ -40,9 +40,12 @@
 </template>
 
 <script>
+import Footer from "components/common/Footer";
+
 export default {
 	name: "MyInfo",
-	components: {}
+	components: {
+	}
 };
 </script>
 

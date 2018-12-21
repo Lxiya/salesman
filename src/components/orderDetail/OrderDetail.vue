@@ -5,7 +5,26 @@
 				<sale-top :title="title" :showBack="showBack" :where="where"></sale-top>
 			</div>
 			<div class="order-content">
-				<div></div>
+				<div class="order-status">
+					<span>待发货</span>
+				</div>
+
+				<div class="wrapper accpect-wrapper">
+					<div class="accpect-info">
+						<div class="location-icon">
+							<img src="/static/images/location.png" alt>
+						</div>
+						<div class="accpect-account">
+							<div class="name-phone">
+								<span class="name">收货人：林林林</span>
+								<span class="phone">15964006550</span>
+							</div>
+							<div class="address">收货地址：山东省济南市槐荫区高铁西客站绿地中央广场C区A座22楼</div>
+						</div>
+					</div>
+				</div>
+
+				<sale-order-item-detail></sale-order-item-detail>
 			</div>
 		</div>
 	</div>
@@ -13,7 +32,7 @@
 
 <script>
 import Top from "components/common/Top";
-import OrderItem from "components/common/OrderItem";
+import OrderItemForDetail from 'components/orderDetail/child/OrderItemForDetail'
 
 export default {
 	name: "OrderDetail",
@@ -26,7 +45,7 @@ export default {
 	},
 	components: {
 		"sale-top": Top,
-		"sale-order-item": OrderItem
+		"sale-order-item-detail": OrderItemForDetail
 	}
 };
 </script>
@@ -36,5 +55,37 @@ export default {
 	height 100vh
 	padding-top 1.22rem
 	background-color #f8f8f8
+	font-size 0.28rem
+	.wrapper
+		&.accpect-wrapper
+			background-color #fff
+			padding 0.33rem 0
+			padding-left 0.24rem
+			padding-right 0.24rem
+			margin-bottom 0.32rem
+	.order-status
+		display flex
+		padding-top 0.4rem
+		padding-bottom 0.75rem
+		padding-left 0.24rem
+		background-color #1f69ff
+		span
+			color #fff
+			font-size 0.36rem
+	.accpect-info
+		display flex
+		justify-content space-between
+		align-items center
+		.location-icon
+			margin-right 0.33rem
+			img
+				display block
+				width 0.46rem
+				height 0.46rem
+	.accpect-info
+		line-height 0.36rem
+		.name-phone
+			display flex
+			justify-content space-between
 </style>
 

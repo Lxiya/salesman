@@ -43,7 +43,7 @@ export default {
 			title: "订单",
 			showBack: true,
 			showSearch: true,
-			where: "/index",
+			where: "main/index",
 			search: "/search"
 		};
 	}

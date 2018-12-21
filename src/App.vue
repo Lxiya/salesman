@@ -1,20 +1,12 @@
 <template>
 	<div>
 		<router-view></router-view>
-		<sale-footer></sale-footer>
 	</div>
 </template>
 
 <script>
-import Footer from "components/common/Footer";
-import Login from "components/login/Login";
-
 export default {
 	name: "App",
-	components: {
-		"sale-footer": Footer,
-		"sale-login": Login
-	},
 	mounted() {
 		let rem = window.screen.width;
 		document.documentElement.style.fontSize = 100 * (rem / 750) + "px";

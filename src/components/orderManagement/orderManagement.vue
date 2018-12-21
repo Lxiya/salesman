@@ -39,7 +39,7 @@
 						</sale-management-icon>
 					</router-link>
 
-					<router-link to="order">
+					<router-link to="/order">
 						<sale-management-icon>
 							<i slot="icon-number">99</i>
 							<img src="/static/images/closed.png" alt slot="icon-img">
@@ -47,7 +47,7 @@
 						</sale-management-icon>
 					</router-link>
 
-					<router-link to="order">
+					<router-link to="/order">
 						<sale-management-icon>
 							<i slot="icon-number">99</i>
 							<img src="/static/images/all-orders.png" alt slot="icon-img">

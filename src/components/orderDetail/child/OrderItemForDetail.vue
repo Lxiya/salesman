@@ -1,13 +1,6 @@
 <template>
 	<div>
 		<div class="order-item">
-			<div class="wrapper time-status-wrapper">
-				<div class="time-status">
-					<div class="order-tiem">创建时间：2018-11-30 23:12:25</div>
-					<div class="order-status">待发货</div>
-				</div>
-			</div>
-
 			<div class="wrapper">
 				<div class="buyer">
 					<img class="buyer-icon" src="/static/images/buyer-icon.png" alt>
@@ -37,15 +30,8 @@
 				<div class="order-intro">
 					<div class="intro-text">
 						<p class="text">共1件商品 合计：</p>
-						<p class="number">￥268.00 (运费￥0.00)</p>
+						<p class="number"><i style="font-style:normal;font-size:0.32rem;color:#ff5a00">￥268.00</i> (运费￥0.00)</p>
 					</div>
-				</div>
-			</div>
-
-			<div class="wrapper">
-				<div class="order-operation">
-					<span class="btn-detail">订单详情</span>
-					<span class="btn-call">拨打电话</span>
 				</div>
 			</div>
 		</div>
@@ -62,9 +48,8 @@ export default {
 .order-item
 	font-size 0.28rem
 	background-color #fff
-	a{
+	a
 		color #000
-	}
 	.blank
 		height 0.2rem
 	.wrapper
@@ -97,7 +82,7 @@ export default {
 		display flex
 		align-items flex-start
 		justify-content space-between
-		padding-top 0.24rem
+		padding-top 0.26rem
 		padding-bottom 0.24rem
 		.order-img
 			margin-right 0.16rem
@@ -106,8 +91,8 @@ export default {
 				width 1.52rem
 				height 1.52rem
 		.order-name
-			margin-right 0.35rem
 			line-height 0.45rem
+			margin-right 0.35rem
 		.order-price
 			line-height 0.45rem
 			font-size 0.26rem
@@ -119,18 +104,4 @@ export default {
 			justify-content flex-end
 			align-items center
 			padding 0.3rem 0
-	.order-operation
-		display flex
-		justify-content flex-end
-		padding 0.2rem 0
-		span
-			display inline-block
-			padding 0.13rem 0.24rem
-			border-radius 0.5rem
-			&.btn-detail
-				border #999999 solid 0.02rem
-			&.btn-call
-				margin-left 0.2rem
-				border #1f69ff solid 0.02rem
-				color #1f69ff
 </style>
