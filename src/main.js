@@ -13,6 +13,7 @@ import Login from 'components/login/Login'
 import Index from 'components/index/Index'
 import Store from 'components/store/Store'
 import Order from 'components/order/Order'
+import OrderSearch from 'components/orderSearch/OrderSearch'
 import MyInfo from 'components/myinfo/MyInfo'
 import ChangePassword from 'components/myinfo/child/ChangePassword'
 import CurrentOrder from 'components/currentOrder/CurrentOrder'
@@ -62,6 +63,10 @@ const routes = [
   {
     path: '/orderDetail',
     component: OrderDetail
+  },
+  {
+    path: '/OrderSearch',
+    component: OrderSearch
   }
 ]
 const router = new VueRouter({
@@ -74,10 +79,19 @@ const store = new Vuex.Store({
     user: null
   },
   mutations: {
-    // 用户登录，保存登录后的信息
-    setUser(state, user) {
-      sessionStorage.setItem('user', JSON.stringify(user))
+    // 用户登录，本地保存登录后的信息,只有退出登录之后才会清除该登录信息
+    login(state, user) {
       state.user = user
+      localStorage.setItem('user', JSON.stringify(user))
+    }
+  },
+  getters: {
+    userInfo(state) {
+      if (state.user) {
+        return state.user
+      } else {
+        return JSON.parse(localStorage.getItem('user'))
+      }
     }
   }
 })

@@ -2,11 +2,11 @@
 	<div>
 		<div class="order-detail">
 			<div class="order-top">
-				<sale-top :title="title" :showBack="showBack" :where="where"></sale-top>
+				<sale-top :title="title" :showBack="showBack"></sale-top>
 			</div>
 			<div class="order-content">
 				<div class="order-status">
-					<span>待发货</span>
+					<span>{{order.status}}</span>
 				</div>
 
 				<div class="wrapper accpect-wrapper">
@@ -16,15 +16,15 @@
 						</div>
 						<div class="accpect-account">
 							<div class="name-phone">
-								<span class="name">收货人：林林林</span>
+								<span class="name">收货人：{{order.buyerName}}</span>
 								<span class="phone">15964006550</span>
 							</div>
-							<div class="address">收货地址：山东省济南市槐荫区高铁西客站绿地中央广场C区A座22楼</div>
+							<div class="address">收货地址：{{order.addressContent}}</div>
 						</div>
 					</div>
 				</div>
 
-				<sale-order-item-detail></sale-order-item-detail>
+				<sale-order-item-detail :buyer="order"></sale-order-item-detail>
 			</div>
 		</div>
 	</div>
@@ -32,20 +32,37 @@
 
 <script>
 import Top from "components/common/Top";
-import OrderItemForDetail from 'components/orderDetail/child/OrderItemForDetail'
+import OrderItemForDetail from "components/orderDetail/child/OrderItemForDetail";
 
 export default {
 	name: "OrderDetail",
 	data() {
 		return {
+			orderId: "",
+			order: {},
+			// 控制显示
 			title: "订单详情",
-			showBack: true,
-			where: "/order"
+			showBack: true
 		};
 	},
 	components: {
 		"sale-top": Top,
 		"sale-order-item-detail": OrderItemForDetail
+	},
+	mounted() {
+		this.orderId = this.$route.query.id;
+		console.log(this.orderId);
+		this.$http
+			.get("/app/sale/orderDetail", {
+				params: {
+					id: this.orderId
+				}
+			})
+			.then(reponse => {
+				reponse = reponse.body;
+				console.log(reponse);
+				this.order = reponse.data;
+			});
 	}
 };
 </script>
@@ -74,7 +91,7 @@ export default {
 			font-size 0.36rem
 	.accpect-info
 		display flex
-		justify-content space-between
+		justify-content space-around
 		align-items center
 		.location-icon
 			margin-right 0.33rem

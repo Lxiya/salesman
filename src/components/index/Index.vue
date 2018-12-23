@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<div class="index">
-			<sale-header></sale-header>
-			<sale-order-management></sale-order-management>
+			<sale-header :orderStatusNumber="orderStatusNumber"></sale-header>
+			<sale-order-management :orderStatusNumber="orderStatusNumber"></sale-order-management>
 		</div>
 	</div>
 </template>
@@ -20,21 +20,22 @@ export default {
 	},
 	data() {
 		return {
-			userTel: ""
+			userTel: "",
+			orderStatusNumber: {}
 		};
 	},
-	computed: {
-		user() {
-			if (this.$store.state.user) {
-				return this.$store.state.user;
-			} else {
-				return JSON.parse(sessionStorage.getItem("user"));
-			}
-		}
-	},
 	mounted() {
-		this.userTel = this.user.telePhone;
-		console.log(this.userTel);
+		this.userTel = this.$store.getters.userInfo.telePhone;
+		this.$http
+			.get("/app/sale/appHome", {
+				params: {
+					phone: this.userTel
+				}
+			})
+			.then(reponse => {
+				reponse = reponse.body;
+				this.orderStatusNumber = reponse.data;
+			});
 	}
 };
 </script>
@@ -42,6 +43,8 @@ export default {
 <style lang="stylus">
 div.index
 	background-color #f2f2f2
+	height 100vh
+	box-sizing border-box
 	min-width 100%
 	overflow-y scroll
 	overflow-x hidden

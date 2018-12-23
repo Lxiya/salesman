@@ -7,10 +7,10 @@
 				</div>
 				<div class="info-my">
 					<p class="my-icon">
-						<img src="/static/images/store-test.png" alt>
+						<img :src="'https://www.jdh19.com' + imgUrl" alt>
 					</p>
-					<p class="my-name">李二狗</p>
-					<p class="my-mubner">编号：123456789</p>
+					<p class="my-name">{{name}}</p>
+					<p class="my-mubner">编号：{{userNumber}}</p>
 				</div>
 			</div>
 			<div class="info-content">
@@ -44,7 +44,17 @@ import Footer from "components/common/Footer";
 
 export default {
 	name: "MyInfo",
-	components: {
+	data() {
+		return {
+			imgUrl: "",
+			userNumber: "",
+			name: ""
+		};
+	},
+	mounted() {
+		this.imgUrl = this.$store.getters.userInfo.photo;
+		this.userNumber = this.$store.getters.userInfo.number;
+		this.name = this.$store.getters.userInfo.name;
 	}
 };
 </script>
@@ -83,35 +93,27 @@ export default {
 						border-radius 50%
 				&.my-name
 					margin-bottom 0.39rem
-	.info-content{
+	.info-content
 		background-color #fff
 		padding-left 0.24rem
-		.content-operation{
-			border-bottom 0.01rem rgba(236,236,236,0.5)
-			&:last-child{
+		.content-operation
+			border-bottom 0.01rem rgba(236, 236, 236, 0.5)
+			&:last-child
 				border-bottom 0 none
-			}
-			.mint-cell{
+			.mint-cell
 				min-height 1.07rem
-			}
-			.mint-cell-title{
+			.mint-cell-title
 				display flex
 				align-items flex-end
-			}
-			img.oper-icon{
+			img.oper-icon
 				display inline-block
 				width 0.35rem
 				height 0.41rem
 				margin-right 0.33rem
-				&.clear-icon{
+				&.clear-icon
 					width 0.38rem
 					height 0.36rem
-				}
-				&.about-icon{
+				&.about-icon
 					width 0.38rem
 					height 0.37rem
-				}
-			}
-		}
-	}
 </style>

@@ -4,33 +4,32 @@
 			<div class="wrapper">
 				<div class="buyer">
 					<img class="buyer-icon" src="/static/images/buyer-icon.png" alt>
-					<span class="buyer-name">醉酒家</span>
+					<span class="buyer-name">{{buyer.shopName}}</span>
 				</div>
 			</div>
 
-			<div class="wrapper order-detail-wrapper">
-				<router-link to="/orderDetail">
-					<div class="order-detail">
-						<div class="order-img">
-							<img src="/static/images/store-test.png" alt>
-						</div>
-						<div class="order-name">
-							汾酒杏花村酒玻汾 53度 黄盖汾
-							475mL*6瓶清香型 白酒 六瓶装
-						</div>
-						<div class="order-price">
-							<div class="order-total">￥268.00</div>
-							<div class="order-mumber">×1</div>
-						</div>
+			<div class="wrapper order-detail-wrapper" v-for="(item,index) in buyer.orderDetailList">
+				<div class="order-detail">
+					<div class="order-img">
+						<img :src="'https://www.jdh19.com' +  item.url" alt>
 					</div>
-				</router-link>
+					<div class="order-name">
+						{{item.packageName}}
+					</div>
+					<div class="order-price">
+						<div class="order-total">￥{{item.price}}</div>
+						<div class="order-mumber">×{{item.amount}}</div>
+					</div>
+				</div>
 			</div>
 
 			<div class="wrapper order-intro-wrapper">
 				<div class="order-intro">
 					<div class="intro-text">
 						<p class="text">共1件商品 合计：</p>
-						<p class="number"><i style="font-style:normal;font-size:0.32rem;color:#ff5a00">￥268.00</i> (运费￥0.00)</p>
+						<p class="number">
+							<i style="font-style:normal;font-size:0.32rem;color:#ff5a00">￥{{buyer.reality}}</i> (运费￥0.00)
+						</p>
 					</div>
 				</div>
 			</div>
@@ -40,7 +39,10 @@
 
 <script>
 export default {
-	name: "OrderItem"
+	name: "OrderItem",
+	props: {
+		buyer: Object
+	}
 };
 </script>
 

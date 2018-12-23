@@ -18,10 +18,11 @@
 						<router-link to="/currentOrder">
 							<div class="number-show">
 								<h1 class="number-text">今日有效订单</h1>
-								<p class="number">
-									118
+								<p class="number" v-if="orderStatusNumber.orderNum !=0">
+									{{orderStatusNumber.orderNum}}
 									<span class="unit">单</span>
 								</p>
+								<p class="number" v-else>暂无订单</p>
 							</div>
 						</router-link>
 					</div>
@@ -29,10 +30,12 @@
 					<div class="income-number">
 						<div class="number-show">
 							<h1 class="number-text">今日订单收入</h1>
-							<p class="number">
-								<span class="unit">￥</span>19169.62
+							<p class="number" v-if="orderStatusNumber.reality!=0">
+								<span class="unit">￥</span>
+								{{orderStatusNumber.reality}}
 								<span class="unit">元</span>
 							</p>
+							<p class="number" v-else>暂无收入</p>
 						</div>
 					</div>
 				</div>
@@ -45,11 +48,11 @@
 export default {
 	name: "Header",
 	props: {
-		userTel: String
+		orderStatusNumber: Object
 	},
 	data() {
 		return {
-			auto: 2000
+			auto: 3000
 		};
 	}
 };

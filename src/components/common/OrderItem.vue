@@ -3,31 +3,28 @@
 		<div class="order-item">
 			<div class="wrapper time-status-wrapper">
 				<div class="time-status">
-					<div class="order-tiem">创建时间：2018-11-30 23:12:25</div>
-					<div class="order-status">待发货</div>
+					<div class="order-tiem">创建时间：{{buyer.createTime}}</div>
+					<div class="order-status">{{buyer.status}}</div>
 				</div>
 			</div>
 
 			<div class="wrapper">
 				<div class="buyer">
 					<img class="buyer-icon" src="/static/images/buyer-icon.png" alt>
-					<span class="buyer-name">醉酒家</span>
+					<span class="buyer-name">{{buyer.buyerName}}</span>
 				</div>
 			</div>
 
-			<div class="wrapper order-detail-wrapper">
-				<router-link to="/orderDetail">
+			<div class="wrapper order-detail-wrapper" v-for="(item,index) in buyer.orderDetailList">
+				<router-link :to="{path:'/orderDetail',query:{id:buyer.id}}">
 					<div class="order-detail">
 						<div class="order-img">
-							<img src="/static/images/store-test.png" alt>
+							<img :src="item.url" alt>
 						</div>
-						<div class="order-name">
-							汾酒杏花村酒玻汾 53度 黄盖汾
-							475mL*6瓶清香型 白酒 六瓶装
-						</div>
+						<div class="order-name">{{item.packageName}}</div>
 						<div class="order-price">
-							<div class="order-total">￥268.00</div>
-							<div class="order-mumber">×1</div>
+							<div class="order-total">￥{{item.price}}</div>
+							<div class="order-mumber">×{{item.amount}}</div>
 						</div>
 					</div>
 				</router-link>
@@ -36,8 +33,8 @@
 			<div class="wrapper order-intro-wrapper">
 				<div class="order-intro">
 					<div class="intro-text">
-						<p class="text">共1件商品 合计：</p>
-						<p class="number">￥268.00 (运费￥0.00)</p>
+						<p class="text">共{{buyer.amount}}件商品 合计：</p>
+						<p class="number">￥{{buyer.reality}} (运费￥0.00)</p>
 					</div>
 				</div>
 			</div>
@@ -54,7 +51,10 @@
 
 <script>
 export default {
-	name: "OrderItem"
+	name: "OrderItem",
+	props: {
+		buyer: Object
+	}
 };
 </script>
 
@@ -62,9 +62,9 @@ export default {
 .order-item
 	font-size 0.28rem
 	background-color #fff
-	a{
+	// margin-bottom 0.26rem
+	a
 		color #000
-	}
 	.blank
 		height 0.2rem
 	.wrapper

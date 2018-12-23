@@ -47,11 +47,10 @@ export default {
 					}
 				})
 				.then(reponse => {
-					Indicator.close();
 					reponse = reponse.body;
+					Indicator.close();
 					this.user = reponse.data;
-					this.$store.commit("setUser", this.user);
-					// console.log(JSON.parse(sessionStorage.getItem("user")));
+					this.$store.commit("login", this.user); //登录后本地保存登录用户的信息
 					this.$router.push("/main/index");
 				});
 		}

@@ -6,50 +6,50 @@
 			</div>
 			<div class="management-icon">
 				<div class="icon-list">
-					<router-link to="/order">
+					<router-link :to="{path:'/order',query:{status:2}}">
 						<sale-management-icon>
-							<i slot="icon-number">99</i>
+							<i slot="icon-number" v-show="orderStatusNumber.waitSend">{{orderStatusNumber.waitSend}}</i>
 							<img src="/static/images/waiting-deliver.png" alt slot="icon-img">
 							<h1 slot="icon-name">待发货</h1>
 						</sale-management-icon>
 					</router-link>
 
-					<router-link to="/order">
+					<router-link :to="{path:'/order',query:{status:3}}">
 						<sale-management-icon>
-							<i slot="icon-number">99</i>
+							<i slot="icon-number" v-show="orderStatusNumber.hadSend">{{orderStatusNumber.hadSend}}</i>
 							<img src="/static/images/finished-deliver.png" alt slot="icon-img">
 							<h1 slot="icon-name">已发货</h1>
 						</sale-management-icon>
 					</router-link>
 
-					<router-link to="/order">
+					<router-link :to="{path:'/order',query:{status:4}}">
 						<sale-management-icon>
-							<i slot="icon-number">99</i>
+							<i slot="icon-number" v-show="orderStatusNumber.received">{{orderStatusNumber.received}}</i>
 							<img src="/static/images/finished-accpect.png" alt slot="icon-img">
 							<h1 slot="icon-name">已收货</h1>
 						</sale-management-icon>
 					</router-link>
 				</div>
 				<div class="icon-list">
-					<router-link to="/order">
+					<router-link :to="{path:'/order',query:{status:5}}">
 						<sale-management-icon>
-							<i slot="icon-number">99</i>
+							<i slot="icon-number" v-show="orderStatusNumber.finished">{{orderStatusNumber.finished}}</i>
 							<img src="/static/images/finished.png" alt slot="icon-img" class="finished">
 							<h1 slot="icon-name">已完成</h1>
 						</sale-management-icon>
 					</router-link>
 
-					<router-link to="/order">
+					<router-link :to="{path:'/order',query:{status:0}}">
 						<sale-management-icon>
-							<i slot="icon-number">99</i>
+							<i slot="icon-number" v-show="orderStatusNumber.close">{{orderStatusNumber.close}}</i>
 							<img src="/static/images/closed.png" alt slot="icon-img">
 							<h1 slot="icon-name">已关闭</h1>
 						</sale-management-icon>
 					</router-link>
 
-					<router-link to="/order">
+					<router-link :to="{path:'/order',query:{status:6}}">
 						<sale-management-icon>
-							<i slot="icon-number">99</i>
+							<i slot="icon-number" v-show="orderStatusNumber.allOrder">{{orderStatusNumber.allOrder}}</i>
 							<img src="/static/images/all-orders.png" alt slot="icon-img">
 							<h1 slot="icon-name">全部订单</h1>
 						</sale-management-icon>
@@ -67,6 +67,9 @@ export default {
 	name: "OrderManagement",
 	components: {
 		"sale-management-icon": ManagementIcon
+	},
+	props: {
+		orderStatusNumber: Object
 	}
 };
 </script>
@@ -110,11 +113,16 @@ div.order-management
 					font-size 0.24rem
 					color #666666
 				i
+					display flex
+					justify-content center
+					align-items center
 					position absolute
 					right -0.19rem
 					top -0.15rem
+					box-sizing border-box
+					width 0.39rem
+					height 0.39rem
 					background-color #ff5a00
-					padding 0.08rem
 					border-radius 50%
 					font-style normal
 					font-size 0.23rem

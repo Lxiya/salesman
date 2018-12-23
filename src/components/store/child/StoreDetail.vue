@@ -2,12 +2,12 @@
 	<div>
 		<div class="store-detail">
 			<div class="store-img">
-				<img src="/static/images/store-test.png" alt="">
+				<img :src="'https://www.jdh19.com' + store.url" alt>
 			</div>
 			<div class="store-info">
-				<p class="store-name">贵州茅台专卖</p>
-				<p class="store-address">贵州省遵义市仁怀市茅台镇</p>
-				<p class="store-owner">王冲 13605400000</p>
+				<p class="store-name">{{store.name}}</p>
+				<p class="store-address">{{store.addressDetail}}</p>
+				<p class="store-owner">{{store.userName}} {{store.phone}}</p>
 			</div>
 		</div>
 	</div>
@@ -16,12 +16,14 @@
 <script>
 export default {
 	name: "StoreDetail",
-	components: {}
+	props: {
+		store: Object
+	}
 };
 </script>
 
 <style lang="stylus" scoped>
-.store-detail{
+.store-detail
 	display flex
 	align-items center
 	padding-top 0.32rem
@@ -30,32 +32,23 @@ export default {
 	margin-bottom 0.24rem
 	background-color #f2f6fc
 	border-radius 0.1rem
-	.store-img{
+	.store-img
 		margin-right 0.26rem
-		img{
+		img
 			display block
 			width 1.27rem
 			height 1.27rem
 			border-radius 0.15rem
-		}
-	}
-	.store-info{
-		p{
+	.store-info
+		p
 			margin-bottom 0.16rem
-			&:last-child{
+			&:last-child
 				margin-bottom 0
-			}
-		}
-		.store-name{
+		.store-name
 			color #212121
 			font-size 0.3rem
-		}
-		.store-address,.store-owner{
+		.store-address, .store-owner
 			font-size 0.26rem
 			color #999999
-		}
-	}
-	
-}
 </style>
 

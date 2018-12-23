@@ -23,11 +23,24 @@ export default {
 	},
 	data() {
 		return {
+			ueserTel: "",
+			orderList: [],
 			// 控制样式
 			title: "今日有效订单",
 			showBack: true,
 			where: "main/index"
 		};
+	},
+	mounted() {
+		this.userTel = this.$store.getters.userInfo.telePhone;
+		this.$http
+			.get("/app/sale/effectiveOrder", {
+				parms: { phone: this.userTel, page: "1", size: "5" }
+			})
+			.then(reponse => {
+				reponse = reponse.body;
+				this.orderList = reponse.data.list;
+			});
 	}
 };
 </script>

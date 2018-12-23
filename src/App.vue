@@ -27,20 +27,25 @@ body {
 h1 {
 	margin: 0;
 }
-a{
+a {
 	text-decoration: none;
-	color: #666666
+	color: #666666;
 }
-.header-banner .mint-swipe-indicators{
-	bottom: 0.3rem
+.header-banner .mint-swipe-indicators {
+	bottom: 0.3rem;
 }
-p{
-	margin: 0
+p {
+	margin: 0;
 }
 .mintui {
-	font-size: 0.42rem
+	font-size: 0.42rem;
 }
-.order .mint-tab-item-label{
-	font-size: 0.28rem
+.order .mint-tab-item-label {
+	font-size: 0.28rem;
+}
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 </style>
