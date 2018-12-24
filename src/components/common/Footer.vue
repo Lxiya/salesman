@@ -27,14 +27,12 @@
 <script>
 export default {
 	name: "Footer",
+	props: {},
 	data() {
 		return {
 			selected: "首页",
 			fixed: true
 		};
-	},
-	mounted(){
-		// console.log(this.selected)
 	}
 };
 </script>

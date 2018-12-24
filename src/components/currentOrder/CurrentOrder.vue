@@ -5,7 +5,11 @@
 				<sale-top :title="title" :showBack="showBack" :where="where"></sale-top>
 			</div>
 			<div class="order-content">
-				<sale-order-item></sale-order-item>
+				<ul>
+					<li v-for="(item,index) in orderList" :key="index">
+						<sale-order-item :buyer="item"></sale-order-item>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -14,6 +18,7 @@
 <script>
 import Top from "components/common/Top";
 import OrderItem from "components/common/OrderItem";
+import { Indicator } from "mint-ui";
 
 export default {
 	name: "CurrentOrder",
@@ -32,12 +37,14 @@ export default {
 		};
 	},
 	mounted() {
+		Indicator.open();
 		this.userTel = this.$store.getters.userInfo.telePhone;
 		this.$http
 			.get("/app/sale/effectiveOrder", {
-				parms: { phone: this.userTel, page: "1", size: "5" }
+				params: { phone: this.userTel, page: "1", size: "5" }
 			})
 			.then(reponse => {
+				Indicator.close();
 				reponse = reponse.body;
 				this.orderList = reponse.data.list;
 			});

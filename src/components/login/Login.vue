@@ -12,9 +12,15 @@
 				<label for="phone-number">
 					<img src="/static/images/password-icon.png" alt>
 				</label>
-				<input placeholder="请输入密码" type="password" id="password" v-model="password">
+				<input
+					placeholder="请输入密码"
+					type="password"
+					id="password"
+					v-model="password"
+					@keyup.enter="login"
+				>
 			</div>
-			<mt-button size="large" type="primary" @click="login">登录</mt-button>
+			<mt-button size="large" type="primary" @click="login" @keyup.enter="login">登录</mt-button>
 		</div>
 	</div>
 </template>
@@ -49,6 +55,7 @@ export default {
 				.then(reponse => {
 					reponse = reponse.body;
 					Indicator.close();
+					console.log(reponse)
 					this.user = reponse.data;
 					this.$store.commit("login", this.user); //登录后本地保存登录用户的信息
 					this.$router.push("/main/index");

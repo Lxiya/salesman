@@ -19,7 +19,7 @@
 				<router-link :to="{path:'/orderDetail',query:{id:buyer.id}}">
 					<div class="order-detail">
 						<div class="order-img">
-							<img :src="item.url" alt>
+							<img :src="'https://www.jdh19.com' + item.url" alt>
 						</div>
 						<div class="order-name">{{item.packageName}}</div>
 						<div class="order-price">

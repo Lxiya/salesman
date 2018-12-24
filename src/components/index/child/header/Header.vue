@@ -18,7 +18,7 @@
 						<router-link to="/currentOrder">
 							<div class="number-show">
 								<h1 class="number-text">今日有效订单</h1>
-								<p class="number" v-if="orderStatusNumber.orderNum !=0">
+								<p class="number" v-if="orderStatusNumber.orderNum">
 									{{orderStatusNumber.orderNum}}
 									<span class="unit">单</span>
 								</p>
@@ -30,7 +30,7 @@
 					<div class="income-number">
 						<div class="number-show">
 							<h1 class="number-text">今日订单收入</h1>
-							<p class="number" v-if="orderStatusNumber.reality!=0">
+							<p class="number" v-if="orderStatusNumber.reality">
 								<span class="unit">￥</span>
 								{{orderStatusNumber.reality}}
 								<span class="unit">元</span>

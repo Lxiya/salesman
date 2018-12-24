@@ -21,11 +21,7 @@
 			</div>
 
 			<div class="order-content">
-				<ul
-					v-infinite-scroll="loadMore"
-					infinite-scroll-disabled="disabledLoad"
-					infinite-scroll-distance="0"
-				>
+				<ul>
 					<li v-for="(item,index) in orderList" :key="index">
 						<sale-order-item :buyer="item"></sale-order-item>
 					</li>
@@ -53,8 +49,14 @@ export default {
 			orderList: [],
 			status: "",
 			userTel: "",
+
+
+
 			// 控制选中
-			selected: "2",
+			selected: "",
+
+
+
 			// 控制样式
 			title: "订单",
 			showBack: true,
@@ -81,12 +83,8 @@ export default {
 					reponse.data.list.forEach(element => {
 						this.orderList.push(element);
 					});
+					console.log(this.orderList)
 				});
-		},
-		loadMore() {
-			this.disabledLoad = true;
-			this.page++;
-			this.requestData(this.page - 1, 5);
 		}
 	},
 	mounted() {

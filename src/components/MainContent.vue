@@ -1,6 +1,8 @@
 <template>
 	<div>
-		<router-view></router-view>
+		
+			<router-view></router-view>
+
 		<footer class="footer">
 			<sale-footer></sale-footer>
 		</footer>

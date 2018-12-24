@@ -3,7 +3,7 @@
 		<div class="my-info">
 			<div class="info-header">
 				<div class="info-logout">
-					<span>退出</span>
+					<span @click="loginOut">退出</span>
 				</div>
 				<div class="info-my">
 					<p class="my-icon">
@@ -50,6 +50,11 @@ export default {
 			userNumber: "",
 			name: ""
 		};
+	},
+	methods: {
+		loginOut() {
+			this.$store.commit("loginOut");
+		}
 	},
 	mounted() {
 		this.imgUrl = this.$store.getters.userInfo.photo;

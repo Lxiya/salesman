@@ -27,16 +27,15 @@ Vue.use(VueResource)
 
 const routes = [
   {
-    path: '/login',
-    component: Login
-  },
-  {
     path: '/main',
     component: MainContent,
     children: [
       {
         path: 'index',
-        component: Index
+        component: Index,
+        meta: {
+          keepAlive: false
+        }
       },
       {
         path: 'store',
@@ -47,6 +46,10 @@ const routes = [
         component: MyInfo
       }
     ]
+  },
+  {
+    path: '/login',
+    component: Login
   },
   {
     path: '/changePassword',
@@ -83,6 +86,15 @@ const store = new Vuex.Store({
     login(state, user) {
       state.user = user
       localStorage.setItem('user', JSON.stringify(user))
+    },
+    // 用户退出,清除本地保存的登录信息
+    loginOut(state) {
+      if (state.user) {
+        state.user = null
+      } else if (JSON.parse(localStorage.getItem('user'))) {
+        localStorage.removeItem('user')
+      }
+      router.push('/login')
     }
   },
   getters: {

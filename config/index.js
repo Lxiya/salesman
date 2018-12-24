@@ -11,7 +11,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/app/sale': {
-        // target: 'http://192.168.1.27:8080/app/sale',
+      //   target: 'http://192.168.1.27:8080/app/sale',
         target: 'http://47.104.104.204:8080/app/sale',
         // target: 'https://www.jdh19.com/app/sale',
         changeOrigin: true,
