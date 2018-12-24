@@ -15,19 +15,21 @@
 				</div>
 			</div>
 
-			<div class="wrapper order-detail-wrapper" v-for="(item,index) in buyer.orderDetailList">
-				<router-link :to="{path:'/orderDetail',query:{id:buyer.id}}">
-					<div class="order-detail">
-						<div class="order-img">
-							<img :src="'https://www.jdh19.com' + item.url" alt>
+			<div class="detail-list">
+				<div class="wrapper order-detail-wrapper" v-for="(item,index) in buyer.orderDetailList">
+					<router-link :to="{path:'/orderDetail',query:{id:buyer.id}}">
+						<div class="order-detail">
+							<div class="order-img">
+								<img :src="'https://www.jdh19.com' + item.url" alt>
+							</div>
+							<div class="order-name">{{item.packageName}}</div>
+							<div class="order-price">
+								<div class="order-total">￥{{item.price}}</div>
+								<div class="order-mumber">×{{item.amount}}</div>
+							</div>
 						</div>
-						<div class="order-name">{{item.packageName}}</div>
-						<div class="order-price">
-							<div class="order-total">￥{{item.price}}</div>
-							<div class="order-mumber">×{{item.amount}}</div>
-						</div>
-					</div>
-				</router-link>
+					</router-link>
+				</div>
 			</div>
 
 			<div class="wrapper order-intro-wrapper">
@@ -62,24 +64,28 @@ export default {
 .order-item
 	font-size 0.28rem
 	background-color #fff
-	// margin-bottom 0.26rem
 	a
 		color #000
 	.blank
 		height 0.2rem
 	.wrapper
 		padding-left 0.24rem
-		padding-right 0.24rem
 		&.time-status-wrapper
 			border-bottom 0.02rem solid #f8f8f8
 		&.order-detail-wrapper
 			background-color #f8f8f8
 		&.order-intro-wrapper
 			border-bottom 0.02rem solid #f8f8f8
+	.detail-list
+		.order-detail-wrapper
+			&:last-child
+				.order-detail
+					border-bottom 0 none
 	.time-status
 		display flex
 		justify-content space-between
 		padding 0.27rem 0 0.21rem
+		padding-right 0.24rem
 		.order-status
 			color #ff5a00
 	.buyer
@@ -99,6 +105,8 @@ export default {
 		justify-content space-between
 		padding-top 0.24rem
 		padding-bottom 0.24rem
+		padding-right 0.24rem
+		border-bottom 0.02rem solid #fff
 		.order-img
 			margin-right 0.16rem
 			img
@@ -119,10 +127,12 @@ export default {
 			justify-content flex-end
 			align-items center
 			padding 0.3rem 0
+			padding-right 0.24rem
 	.order-operation
 		display flex
 		justify-content flex-end
 		padding 0.2rem 0
+		padding-right 0.24rem
 		span
 			display inline-block
 			padding 0.13rem 0.24rem

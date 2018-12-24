@@ -17,7 +17,7 @@
 						<div class="accpect-account">
 							<div class="name-phone">
 								<span class="name">收货人：{{order.buyerName}}</span>
-								<span class="phone">15964006550</span>
+								<span class="phone">{{order.buyerTel}}</span>
 							</div>
 							<div class="address">收货地址：{{order.addressContent}}</div>
 						</div>
@@ -51,7 +51,6 @@ export default {
 	},
 	mounted() {
 		this.orderId = this.$route.query.id;
-		console.log(this.orderId);
 		this.$http
 			.get("/app/sale/orderDetail", {
 				params: {
@@ -60,9 +59,12 @@ export default {
 			})
 			.then(reponse => {
 				reponse = reponse.body;
-				console.log(reponse);
 				this.order = reponse.data;
 			});
+	},
+	beforeRouteLeave(to, from, next) {
+		to.meta.keepAlive = true;
+		next();
 	}
 };
 </script>
@@ -70,6 +72,7 @@ export default {
 <style lang="stylus" scoped>
 .order-detail
 	height 100vh
+	box-sizing border-box
 	padding-top 1.22rem
 	background-color #f8f8f8
 	font-size 0.28rem
@@ -91,7 +94,7 @@ export default {
 			font-size 0.36rem
 	.accpect-info
 		display flex
-		justify-content space-around
+		justify-content flex-start
 		align-items center
 		.location-icon
 			margin-right 0.33rem

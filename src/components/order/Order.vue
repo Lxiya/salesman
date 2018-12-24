@@ -10,7 +10,7 @@
 					:search="search"
 					:status="status"
 				></sale-top>
-				<mt-navbar v-model="selected">
+				<mt-navbar v-model="selected" :fixed="fixed" class="order-navbar">
 					<mt-tab-item id="2">待发货</mt-tab-item>
 					<mt-tab-item id="3">已发货</mt-tab-item>
 					<mt-tab-item id="4">已收货</mt-tab-item>
@@ -50,14 +50,11 @@ export default {
 			status: "",
 			userTel: "",
 
-
-
 			// 控制选中
 			selected: "",
 
-
-
 			// 控制样式
+			fixed: true,
 			title: "订单",
 			showBack: true,
 			showSearch: true,
@@ -83,7 +80,6 @@ export default {
 					reponse.data.list.forEach(element => {
 						this.orderList.push(element);
 					});
-					console.log(this.orderList)
 				});
 		}
 	},
@@ -91,6 +87,10 @@ export default {
 		this.status = this.$route.query.status;
 		this.userTel = this.$store.getters.userInfo.telePhone;
 		this.requestData(this.page, 5);
+		this.selected = (this.$route.query.status).toString()
+		// console.log(typeof((this.$route.query.status).toString()));
+		// this.selected = '2'n 
+		
 	}
 };
 </script>
@@ -99,7 +99,7 @@ export default {
 .order
 	box-sizing border-box
 	min-height 100vh
-	padding-top 1.22rem
+	padding-top 1.99rem
 	background-color #f8f8f8
 	.order-top
 		margin-bottom 0.21rem
@@ -111,5 +111,10 @@ export default {
 				margin-bottom 0
 	.mint-navbar .mint-tab-item
 		padding 0.3rem 0
+	.order-navbar{
+		height 0.77rem
+		box-sizing border-box
+		top:1.22rem
+	}
 </style>
 

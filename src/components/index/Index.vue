@@ -24,6 +24,10 @@ export default {
 			orderStatusNumber: {}
 		};
 	},
+	beforeRouteLeave(to, from, next) {
+		to.meta.keepAlive = false;
+		next();
+	},
 	mounted() {
 		this.userTel = this.$store.getters.userInfo.telePhone;
 		this.$http

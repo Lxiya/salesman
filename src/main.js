@@ -32,10 +32,7 @@ const routes = [
     children: [
       {
         path: 'index',
-        component: Index,
-        meta: {
-          keepAlive: false
-        }
+        component: Index
       },
       {
         path: 'store',
@@ -56,8 +53,12 @@ const routes = [
     component: ChangePassword
   },
   {
+    name: 'order',
     path: '/order',
-    component: Order
+    component: Order,
+    meta: {
+      keepAlive: true
+    }
   },
   {
     path: '/currentOrder',
