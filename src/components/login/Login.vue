@@ -52,11 +52,11 @@ export default {
 						password: this.password
 					}
 				})
-				.then(reponse => {
-					reponse = reponse.body;
+				.then(response => {
+					response = response.body;
 					Indicator.close();
-					console.log(reponse)
-					this.user = reponse.data;
+					console.log(response)
+					this.user = response.data;
 					this.$store.commit("login", this.user); //登录后本地保存登录用户的信息
 					this.$router.push("/main/index");
 				});

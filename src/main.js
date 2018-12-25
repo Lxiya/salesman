@@ -14,6 +14,7 @@ import Login from 'components/login/Login'
 import Index from 'components/index/Index'
 import Store from 'components/store/Store'
 import Order from 'components/order/Order'
+import SearchList from 'components/orderSearch/SearchList'
 
 import OrderSearch from 'components/orderSearch/OrderSearch'
 import MyInfo from 'components/myinfo/MyInfo'
@@ -71,6 +72,10 @@ const routes = [
   {
     path: '/OrderSearch',
     component: OrderSearch
+  },
+  {
+    path: '/searchResult',
+    component: SearchList
   }
 ]
 const router = new VueRouter({

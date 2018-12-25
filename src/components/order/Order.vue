@@ -27,7 +27,7 @@
 						<router-link :to="{path:'/order',query:{status:0}}">已关闭</router-link>
 					</mt-tab-item>
 					<mt-tab-item id="6">
-						<router-link :to="{path:'/order',query:{status:6}}">已完成</router-link>
+						<router-link :to="{path:'/order',query:{status:6}}">全部</router-link>
 					</mt-tab-item>
 				</mt-navbar>
 			</div>
@@ -62,9 +62,8 @@ export default {
 		return {
 			loading: false,
 			finished: false,
-			// :offe
 			offset: 10,
-			loadingText:'加载中',
+			loadingText: "加载中",
 
 			page: 1,
 			size: 5,
@@ -101,17 +100,17 @@ export default {
 				});
 		},
 		loadMore() {
-			console.log('加载更多')
+			console.log("加载更多");
 		}
 	},
 	mounted() {
 		this.status = this.$route.query.status;
 		this.userTel = this.$store.getters.userInfo.telePhone;
-		this.selected = (this.$route.query.status).toString()
+		this.selected = this.$route.query.status.toString();
 		this.requestData(this.page, 5);
 	},
 	watch: {
-		'$route'(to, from) {
+		$route(to, from) {
 			this.status = this.$route.query.status;
 			this.requestData(this.page, 5);
 		}

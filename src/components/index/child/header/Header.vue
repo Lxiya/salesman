@@ -28,15 +28,17 @@
 					</div>
 					<div class="split"></div>
 					<div class="income-number">
-						<div class="number-show">
-							<h1 class="number-text">今日订单收入</h1>
-							<p class="number" v-if="orderStatusNumber.reality">
-								<span class="unit">￥</span>
-								{{orderStatusNumber.reality}}
-								<span class="unit">元</span>
-							</p>
-							<p class="number" v-else>暂无收入</p>
-						</div>
+						<router-link to="/currentOrder">
+							<div class="number-show">
+								<h1 class="number-text">今日订单收入</h1>
+								<p class="number" v-if="orderStatusNumber.reality">
+									<span class="unit">￥</span>
+									{{orderStatusNumber.reality}}
+									<span class="unit">元</span>
+								</p>
+								<p class="number" v-else>暂无收入</p>
+							</div>
+						</router-link>
 					</div>
 				</div>
 			</div>

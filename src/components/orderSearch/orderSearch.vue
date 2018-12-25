@@ -70,7 +70,7 @@ export default {
 	data() {
 		return {
 			uerTel: "",
-			status: '',
+			status: "",
 			//控制样式
 			title: "订单查询",
 			showBack: true,
@@ -81,8 +81,8 @@ export default {
 			buyerTel: "",
 			startTime: new Date(),
 			endTime: new Date(),
-			inputStartTime: '',
-			inputEndTime: ''
+			inputStartTime: "",
+			inputEndTime: ""
 		};
 	},
 	methods: {
@@ -92,37 +92,52 @@ export default {
 		openEndPicker() {
 			this.$refs.pickerEnd.open();
 		},
-		// 查询请求
+		// 获取查询参数并跳转
 		orderSearch() {
-			this.userTel = this.$store.getters.userInfo.telePhone;
-			this.status = this.$route.query.status;
-			this.$http.get('/app/sale/search', {
-				params: {
-					phone: this.userTel,
+			// this.userTel = this.$store.getters.userInfo.telePhone;
+			// this.status = this.$route.query.status;
+			// this.$http.get('/app/sale/search', {
+			// 	params: {
+			// 		phone: this.userTel,
+			// 		status: this.status,
+			// 		shopName: this.storeName,
+			// 		number: this.orderNumber,
+			// 		buyerTel: this.buyerTel,
+			// 		startTime: this.inputStartTime,
+			// 		endTime: this.inputEndTime,
+			// 		page: 1,
+			// 		size: 5
+			// 	}			}).then(reponse => {
+			// 	reponse = reponse.body;
+			// 	console.log(reponse)			})
+			// this.$route.push('')
+			this.$router.push({
+				path: "/searchResult",
+				query: {
+					phone: this.uerTel,
 					status: this.status,
 					shopName: this.storeName,
 					number: this.orderNumber,
 					buyerTel: this.buyerTel,
 					startTime: this.inputStartTime,
-					endTime: this.inputEndTime,
-					page: 1,
-					size: 5
-				}			}).then(reponse => {
-				reponse = reponse.body;
-				console.log(reponse)			})
+					endTime: this.inputEndTime
+				}
+			});
 		},
 		// 日期转换
 		formatDate(otcDate) {
-			let date = new Date(otcDate)
-			return (date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
+			let date = new Date(otcDate);
+			return (
+				date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate()
+			);
 		},
 		// 键入开始日期
 		showStartTime(selectedDate) {
-			this.inputStartTime = this.formatDate(selectedDate)
+			this.inputStartTime = this.formatDate(selectedDate);
 		},
 		// 键入结束日期
 		showEndTime(selectedDate) {
-			this.inputEndTime = this.formatDate(selectedDate)
+			this.inputEndTime = this.formatDate(selectedDate);
 		}
 	},
 	// computed: {
@@ -147,6 +162,7 @@ export default {
 	// },
 	mounted() {
 		this.uerTel = this.$store.getters.userInfo.telePhone;
+		this.status = this.$route.query.status;
 		// let date = new Date();
 		// let dateFormat =
 		// 	date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
