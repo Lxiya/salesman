@@ -11,21 +11,37 @@
 					:status="status"
 				></sale-top>
 				<mt-navbar v-model="selected" :fixed="fixed" class="order-navbar">
-					<mt-tab-item id="2">待发货</mt-tab-item>
-					<mt-tab-item id="3">已发货</mt-tab-item>
-					<mt-tab-item id="4">已收货</mt-tab-item>
-					<mt-tab-item id="5">已完成</mt-tab-item>
-					<mt-tab-item id="0">已关闭</mt-tab-item>
-					<mt-tab-item id="6">全部</mt-tab-item>
+					<mt-tab-item id="2">
+						<router-link :to="{path:'/order',query:{status:2}}">待发货</router-link>
+					</mt-tab-item>
+					<mt-tab-item id="3">
+						<router-link :to="{path:'/order',query:{status:3}}">已发货</router-link>
+					</mt-tab-item>
+					<mt-tab-item id="4">
+						<router-link :to="{path:'/order',query:{status:4}}">已收货</router-link>
+					</mt-tab-item>
+					<mt-tab-item id="5">
+						<router-link :to="{path:'/order',query:{status:5}}">已完成</router-link>
+					</mt-tab-item>
+					<mt-tab-item id="0">
+						<router-link :to="{path:'/order',query:{status:0}}">已关闭</router-link>
+					</mt-tab-item>
+					<mt-tab-item id="6">
+						<router-link :to="{path:'/order',query:{status:6}}">已完成</router-link>
+					</mt-tab-item>
 				</mt-navbar>
 			</div>
 
 			<div class="order-content">
-				<ul>
-					<li v-for="(item,index) in orderList" :key="index">
-						<sale-order-item :buyer="item"></sale-order-item>
-					</li>
-				</ul>
+				<van-list
+					v-model="loading"
+					:finished="finished"
+					:loading-text="loadingText"
+					@load="loadMore"
+					:offset="offset"
+				>
+					<sale-order-item v-for="(item,index) in orderList" :key="index" :buyer="item"></sale-order-item>
+				</van-list>
 			</div>
 		</div>
 	</div>
@@ -44,15 +60,19 @@ export default {
 	},
 	data() {
 		return {
+			loading: false,
+			finished: false,
+			// :offe
+			offset: 10,
+			loadingText:'加载中',
+
 			page: 1,
 			size: 5,
 			orderList: [],
 			status: "",
 			userTel: "",
-
 			// 控制选中
 			selected: "",
-
 			// 控制样式
 			fixed: true,
 			title: "订单",
@@ -64,7 +84,6 @@ export default {
 	},
 	methods: {
 		requestData(page, size) {
-			Indicator.open();
 			this.$http
 				.get("/app/sale/selectOrderListByStatus", {
 					params: {
@@ -76,21 +95,26 @@ export default {
 				})
 				.then(reponse => {
 					reponse = reponse.body;
-					Indicator.close();
 					reponse.data.list.forEach(element => {
 						this.orderList.push(element);
 					});
 				});
+		},
+		loadMore() {
+			console.log('加载更多')
 		}
 	},
 	mounted() {
 		this.status = this.$route.query.status;
 		this.userTel = this.$store.getters.userInfo.telePhone;
-		this.requestData(this.page, 5);
 		this.selected = (this.$route.query.status).toString()
-		// console.log(typeof((this.$route.query.status).toString()));
-		// this.selected = '2'n 
-		
+		this.requestData(this.page, 5);
+	},
+	watch: {
+		'$route'(to, from) {
+			this.status = this.$route.query.status;
+			this.requestData(this.page, 5);
+		}
 	}
 };
 </script>
@@ -105,16 +129,17 @@ export default {
 		margin-bottom 0.21rem
 	.order-content
 		padding-bottom 0.26rem
-		li
-			margin-bottom 0.26rem
-			&:last-child
-				margin-bottom 0
+		.van-list
+			min-height 100vh
+			div
+				margin-bottom 0.26rem
+				&:nth-child(5n)
+					margin-bottom 0
 	.mint-navbar .mint-tab-item
 		padding 0.3rem 0
-	.order-navbar{
+	.order-navbar
 		height 0.77rem
 		box-sizing border-box
-		top:1.22rem
-	}
+		top 1.22rem
 </style>
 

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Vuex from 'vuex'
 import VueResource from 'vue-resource'
 import MintUI from 'mint-ui'
+import { List } from 'vant'
 
 import 'normalize.css'
 import 'mint-ui/lib/style.css'
@@ -13,6 +14,7 @@ import Login from 'components/login/Login'
 import Index from 'components/index/Index'
 import Store from 'components/store/Store'
 import Order from 'components/order/Order'
+
 import OrderSearch from 'components/orderSearch/OrderSearch'
 import MyInfo from 'components/myinfo/MyInfo'
 import ChangePassword from 'components/myinfo/child/ChangePassword'
@@ -23,6 +25,7 @@ Vue.config.productionTip = false
 Vue.use(VueRouter)
 Vue.use(Vuex)
 Vue.use(MintUI)
+Vue.use(List)
 Vue.use(VueResource)
 
 const routes = [
@@ -55,10 +58,7 @@ const routes = [
   {
     name: 'order',
     path: '/order',
-    component: Order,
-    meta: {
-      keepAlive: true
-    }
+    component: Order
   },
   {
     path: '/currentOrder',

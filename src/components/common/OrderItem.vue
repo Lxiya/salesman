@@ -11,7 +11,7 @@
 			<div class="wrapper">
 				<div class="buyer">
 					<img class="buyer-icon" src="/static/images/buyer-icon.png" alt>
-					<span class="buyer-name">{{buyer.buyerName}}</span>
+					<span class="buyer-name">{{buyer.shopName}}</span>
 				</div>
 			</div>
 

@@ -6,7 +6,9 @@
 			</div>
 			<div class="store-info">
 				<p class="store-name">{{store.name}}</p>
-				<p class="store-address">{{store.addressDetail}}</p>
+				<p
+					class="store-address"
+				>{{store.province}} {{store.city}} {{store.country}} {{store.addressDetail}}</p>
 				<p class="store-owner">{{store.userName}} {{store.phone}}</p>
 			</div>
 		</div>

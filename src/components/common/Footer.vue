@@ -32,53 +32,51 @@ export default {
 </script>
 
 <style lang="stylus">
-.mint-tabbar
-	background-color
-.mint-tab-item
-	padding 0
-	&.is-selected
-		background-color transparent !important
-.mint-tab-item-label
-	display flex
-	flex-direction column
-	a
-		display block
-		padding 0.14rem 0
-		padding-bottom 0.09rem
-		font-size 0.22rem
-		&.active
-			color #1f69ff
-			span.index-icon{
-				background-image url('/static/images/index-active.png')
-			}
-			span.store-icon{
-				background-image url('/static/images/store-active.png')
-			}
-			span.myinfo-icon{
-				background-image url('/static/images/my-info-active.png')
-			}
-		& span
-			background-size 0.44rem 0.44rem
-		&.index
-			span
-				background-image url('/static/images/index-icon.png')
-		&.store
-			span
-				background-image url('/static/images/store-icon.png')
-				background-size 0.46rem 0.44rem
-		&.myinfo
-			span
-				background-image url('/static/images/my-info-icon.png')
-				background-size 0.47rem 0.44rem
-	span
-		display block
-		margin 0 auto
-		width 0.44rem
-		height 0.44rem
-		margin-bottom 0.09rem
-		&.store-icon
-			width 0.46rem
-		&.myinfo-icon
-			width 0.47rem
+.footer
+	.mint-tabbar
+		background-color #fff
+		.mint-tab-item
+			padding 0
+			&.is-selected
+				background-color transparent !important
+			.mint-tab-item-label
+				display flex
+				flex-direction column
+				a
+					display block
+					padding 0.14rem 0
+					padding-bottom 0.09rem
+					font-size 0.22rem
+					&.active
+						color #1f69ff
+						span.index-icon
+							background-image url('/static/images/index-active.png')
+						span.store-icon
+							background-image url('/static/images/store-active.png')
+						span.myinfo-icon
+							background-image url('/static/images/my-info-active.png')
+					& span
+						background-size 0.44rem 0.44rem
+					&.index
+						span
+							background-image url('/static/images/index-icon.png')
+					&.store
+						span
+							background-image url('/static/images/store-icon.png')
+							background-size 0.46rem 0.44rem
+					&.myinfo
+						span
+							background-image url('/static/images/my-info-icon.png')
+							background-size 0.47rem 0.44rem
+				span
+					display block
+					margin 0 auto
+					width 0.44rem
+					height 0.44rem
+					margin-bottom 0.09rem
+					&.store-icon
+						width 0.46rem
+					&.myinfo-icon
+						width 0.47rem
 </style>
 
