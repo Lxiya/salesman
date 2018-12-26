@@ -84,6 +84,7 @@ export default {
 				reponse.data.list.forEach(element => {
 					this.orderList.push(element);
 				});
+				console.log(this.orderList)
 			});
 	}
 };

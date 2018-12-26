@@ -6,7 +6,7 @@
 			</div>
 			<div class="management-icon">
 				<div class="icon-list">
-					<router-link :to="{path:'/order',query:{status:2}}">
+					<router-link :to="{path:'/order/status/2'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.waitSend">{{orderStatusNumber.waitSend}}</i>
 							<img src="/static/images/waiting-deliver.png" alt slot="icon-img">
@@ -14,7 +14,7 @@
 						</sale-management-icon>
 					</router-link>
 
-					<router-link :to="{path:'/order',query:{status:3}}">
+					<router-link :to="{path:'/order/status/3'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.hadSend">{{orderStatusNumber.hadSend}}</i>
 							<img src="/static/images/finished-deliver.png" alt slot="icon-img">
@@ -22,7 +22,7 @@
 						</sale-management-icon>
 					</router-link>
 
-					<router-link :to="{path:'/order',query:{status:4}}">
+					<router-link :to="{path:'/order/status/4'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.received">{{orderStatusNumber.received}}</i>
 							<img src="/static/images/finished-accpect.png" alt slot="icon-img">
@@ -31,7 +31,7 @@
 					</router-link>
 				</div>
 				<div class="icon-list">
-					<router-link :to="{path:'/order',query:{status:5}}">
+					<router-link :to="{path:'/order/status/5'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.finished">{{orderStatusNumber.finished}}</i>
 							<img src="/static/images/finished.png" alt slot="icon-img" class="finished">
@@ -39,7 +39,7 @@
 						</sale-management-icon>
 					</router-link>
 
-					<router-link :to="{path:'/order',query:{status:0}}">
+					<router-link :to="{path:'/order/status/0'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.close">{{orderStatusNumber.close}}</i>
 							<img src="/static/images/closed.png" alt slot="icon-img">
@@ -47,7 +47,7 @@
 						</sale-management-icon>
 					</router-link>
 
-					<router-link :to="{path:'/order',query:{status:6}}">
+					<router-link :to="{path:'/order/status/6'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.allOrder">{{orderStatusNumber.allOrder}}</i>
 							<img src="/static/images/all-orders.png" alt slot="icon-img">

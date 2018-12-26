@@ -20,17 +20,17 @@
 					</mt-cell>
 				</div>
 				<div class="content-operation">
-					<mt-cell title="清除缓存" to="//github.com" is-link>
+					<mt-cell title="清除缓存"  is-link>
 						<img slot="icon" src="/static/images/clear-cache.png" class="oper-icon clear-icon">
 					</mt-cell>
 				</div>
 				<div class="content-operation">
-					<mt-cell title="如何使用" to="//github.com" is-link>
+					<mt-cell title="如何使用" is-link>
 						<img slot="icon" src="/static/images/how-use.png" class="oper-icon">
 					</mt-cell>
 				</div>
 				<div class="content-operation">
-					<mt-cell title="关于我们" to="//github.com" is-link>
+					<mt-cell title="关于我们" is-link>
 						<img slot="icon" src="/static/images/about.png" class="oper-icon about-icon">
 					</mt-cell>
 				</div>

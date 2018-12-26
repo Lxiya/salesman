@@ -43,7 +43,10 @@
 
 			<div class="wrapper">
 				<div class="order-operation">
-					<span class="btn-detail">订单详情</span>
+					<router-link :to="{path:'/orderDetail',query:{id:buyer.id}}">
+						<span class="btn-detail">订单详情</span>
+					</router-link>
+
 					<span class="btn-call">拨打电话</span>
 				</div>
 			</div>

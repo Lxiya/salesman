@@ -21,6 +21,7 @@ import MyInfo from 'components/myinfo/MyInfo'
 import ChangePassword from 'components/myinfo/child/ChangePassword'
 import CurrentOrder from 'components/currentOrder/CurrentOrder'
 import OrderDetail from 'components/orderDetail/OrderDetail'
+import StatusList from 'components/order/child/StatusList'
 
 Vue.config.productionTip = false
 Vue.use(VueRouter)
@@ -59,7 +60,13 @@ const routes = [
   {
     name: 'order',
     path: '/order',
-    component: Order
+    component: Order,
+    children: [
+      {
+        path: 'status/:status',
+        component: StatusList
+      }
+    ]
   },
   {
     path: '/currentOrder',
@@ -114,7 +121,6 @@ const store = new Vuex.Store({
   }
 })
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,

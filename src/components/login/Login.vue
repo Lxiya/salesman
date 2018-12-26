@@ -57,8 +57,10 @@ export default {
 					Indicator.close();
 					console.log(response)
 					this.user = response.data;
-					this.$store.commit("login", this.user); //登录后本地保存登录用户的信息
+
 					this.$router.push("/main/index");
+					this.$store.commit("login", this.user); //登录后本地保存登录用户的信息
+					window.jstoandroid.resgiterJpush(this.user.id)
 				});
 		}
 	}

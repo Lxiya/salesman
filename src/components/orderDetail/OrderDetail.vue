@@ -61,10 +61,6 @@ export default {
 				reponse = reponse.body;
 				this.order = reponse.data;
 			});
-	},
-	beforeRouteLeave(to, from, next) {
-		to.meta.keepAlive = true;
-		next();
 	}
 };
 </script>
