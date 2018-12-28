@@ -40,6 +40,7 @@ export default {
 		return {
 			orderId: "",
 			order: {},
+
 			// 控制显示
 			title: "订单详情",
 			showBack: true

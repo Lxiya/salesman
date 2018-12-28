@@ -48,18 +48,11 @@ export default {
 	},
 	data() {
 		return {
-			// loading: false,
-			// finished: false,
-			// offset: 10,
-			// loadingText: "加载中",
-
-			// page: 1,
-			// size: 5,
-			// orderList: [],
 			status: "",
-			// userTel: "",
+
 			// 控制选中
 			selected: "",
+
 			// 控制样式
 			fixed: true,
 			title: "订单",
@@ -68,44 +61,17 @@ export default {
 			search: "/OrderSearch"
 		};
 	},
-	// methods: {
-	// 	requestData(page, size) {
-	// 		this.$http
-	// 			.get("/app/sale/selectOrderListByStatus", {
-	// 				params: {
-	// 					status: this.status,
-	// 					page: this.page,
-	// 					size: this.size,
-	// 					phone: this.userTel
-	// 				}
-	// 			})
-	// 			.then(reponse => {
-	// 				reponse = reponse.body;
-	// 				reponse.data.list.forEach(element => {
-	// 					this.orderList.push(element);
-	// 				});
-	// 			});
-	// 	},
-	// 	loadMore() {
-	// 		console.log("加载更多");
-	// 	}
-	// },
-	mounted() {
-		// this.status = this.$route.query.status;
-		// this.userTel = this.$store.getters.userInfo.telePhone;
-		this.selected = this.$route.params.status.toString();
-		// this.requestData(this.page, 5);
-	}
-	// watch: {
-	// 	$route(to, from) {
-	// 		// this.orderList = []
-	// 		this.status = this.$route.params.status;
-	// 		if (this.$route.params.status) {
-	// 			this.requestData(this.page, 5);
-	// 		}
 
-	// 	}
-	// }
+	mounted() {
+		this.status = this.$route.params.status;
+		this.selected = this.$route.params.status.toString()
+	},
+	//监听路由变化
+	watch: {
+		$route(to, from) {
+			this.status = this.$route.params.status
+		}
+	}
 };
 </script>
 
@@ -118,7 +84,7 @@ export default {
 	.order-top
 		margin-bottom 0.21rem
 	.order-content
-		padding-bottom 0.26rem
+		// padding-bottom 0.26rem
 	.mint-navbar .mint-tab-item
 		padding 0.3rem 0
 	.order-navbar

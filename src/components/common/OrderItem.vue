@@ -20,7 +20,7 @@
 					<router-link :to="{path:'/orderDetail',query:{id:buyer.id}}">
 						<div class="order-detail">
 							<div class="order-img">
-								<img :src="'https://www.jdh19.com' + item.url" alt>
+								<img v-lazy="'https://www.jdh19.com' + item.url" alt>
 							</div>
 							<div class="order-name">{{item.packageName}}</div>
 							<div class="order-price">
@@ -64,9 +64,13 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+div.last-item
+	.order-item
+		margin-bottom 0
 .order-item
 	font-size 0.28rem
 	background-color #fff
+	margin-bottom 0.26rem
 	a
 		color #000
 	.blank

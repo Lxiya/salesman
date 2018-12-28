@@ -3,7 +3,7 @@
 		<div class="store">
 			<sale-top :title="title"></sale-top>
 			<div class="detail-list">
-				<sale-store-detail v-for="(item,index) in storeList" :key="index" :store='item'></sale-store-detail>
+				<sale-store-detail v-for="(item,index) in storeList" :key="index" :store="item"></sale-store-detail>
 			</div>
 		</div>
 	</div>
@@ -33,7 +33,7 @@ export default {
 				params: {
 					phone: this.userTel,
 					page: "1",
-					size: "5"
+					size: "20"
 				}
 			})
 			.then(reponse => {

@@ -8,9 +8,10 @@
 </template>
 
 <script>
+import { Indicator } from "mint-ui";
 import Footer from "components/common/Footer";
 import Header from "components/index/child/header/Header";
-import OrderManagement from "components/orderManagement/orderManagement";
+import OrderManagement from "components/orderManagement/OrderManagement";
 
 export default {
 	name: "Index",

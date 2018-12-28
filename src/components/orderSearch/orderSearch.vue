@@ -95,7 +95,7 @@ export default {
 		// 获取查询参数并跳转
 		orderSearch() {
 			// this.userTel = this.$store.getters.userInfo.telePhone;
-			// this.status = this.$route.query.status;
+			// this.status = this.$route.params.status;
 			// this.$http.get('/app/sale/search', {
 			// 	params: {
 			// 		phone: this.userTel,

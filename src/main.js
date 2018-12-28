@@ -64,7 +64,10 @@ const routes = [
     children: [
       {
         path: 'status/:status',
-        component: StatusList
+        component: StatusList,
+        meta: {
+          keepAlive: false
+        }
       }
     ]
   },
@@ -89,7 +92,6 @@ const router = new VueRouter({
   routes: routes,
   linkActiveClass: 'active'
 })
-
 const store = new Vuex.Store({
   state: {
     user: null

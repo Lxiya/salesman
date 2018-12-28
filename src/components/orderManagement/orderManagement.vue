@@ -41,7 +41,7 @@
 
 					<router-link :to="{path:'/order/status/0'}">
 						<sale-management-icon>
-							<i slot="icon-number" v-show="orderStatusNumber.close">{{orderStatusNumber.close}}</i>
+						<i slot="icon-number" v-show="orderStatusNumber.close">{{orderStatusNumber.close}}</i>
 							<img src="/static/images/closed.png" alt slot="icon-img">
 							<h1 slot="icon-name">已关闭</h1>
 						</sale-management-icon>
