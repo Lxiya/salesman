@@ -66,7 +66,7 @@ const routes = [
         path: 'status/:status',
         component: StatusList,
         meta: {
-          keepAlive: false
+          keepAlive: true
         }
       }
     ]

@@ -60,8 +60,16 @@ export default {
 					this.$router.push("/main/index");
 					//登录后本地保存登录用户的信息
 					this.$store.commit("login", this.user);
-					window.jstoandroid.resgiterJpush(this.user.id)
+					window.jstoandroid.resgiterJpush(this.user.id);
 				});
+		}
+	},
+	created() {
+		if (
+			localStorage.getItem("user") != null ||
+			localStorage.getItem("user") != undefined
+		) {
+			this.$router.push("main/index");
 		}
 	}
 };
