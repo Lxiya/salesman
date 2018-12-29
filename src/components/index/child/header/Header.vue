@@ -3,13 +3,13 @@
 		<div class="header-banner">
 			<mt-swipe :auto="auto">
 				<mt-swipe-item>
-					<img src="/static/images/header-banner.png" alt>
+					<img src="static/images/header-banner.png" alt>
 				</mt-swipe-item>
 				<mt-swipe-item>
-					<img src="/static/images/header-banner.png" alt>
+					<img src="static/images/header-banner.png" alt>
 				</mt-swipe-item>
 				<mt-swipe-item>
-					<img src="/static/images/header-banner.png" alt>
+					<img src="static/images/header-banner.png" alt>
 				</mt-swipe-item>
 			</mt-swipe>
 			<div class="income-order">

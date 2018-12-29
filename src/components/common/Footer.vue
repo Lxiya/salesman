@@ -50,23 +50,23 @@ export default {
 					&.active
 						color #1f69ff
 						span.index-icon
-							background-image url('/static/images/index-active.png')
+							background-image url('index-active.png')
 						span.store-icon
-							background-image url('/static/images/store-active.png')
+							background-image url('store-active.png')
 						span.myinfo-icon
-							background-image url('/static/images/my-info-active.png')
+							background-image url('my-info-active.png')
 					& span
 						background-size 0.44rem 0.44rem
 					&.index
 						span
-							background-image url('/static/images/index-icon.png')
+							background-image url('index-icon.png')
 					&.store
 						span
-							background-image url('/static/images/store-icon.png')
+							background-image url('store-icon.png')
 							background-size 0.46rem 0.44rem
 					&.myinfo
 						span
-							background-image url('/static/images/my-info-icon.png')
+							background-image url('my-info-icon.png')
 							background-size 0.47rem 0.44rem
 				span
 					display block

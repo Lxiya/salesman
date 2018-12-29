@@ -8,6 +8,7 @@
 					:showSearch="showSearch"
 					:search="search"
 					:status="status"
+					:goBack="goBack"
 				></sale-top>
 
 				<mt-navbar v-model="selected" :fixed="fixed" class="order-navbar">
@@ -58,7 +59,8 @@ export default {
 			title: "订单",
 			showBack: true,
 			showSearch: true,
-			search: "/OrderSearch"
+			search: "/orderSearch",
+			goBack: '/main/index'
 		};
 	},
 
@@ -67,11 +69,30 @@ export default {
 		this.selected = this.$route.params.status.toString()
 	},
 	//监听路由变化
-	watch: {
-		$route(to, from) {
-			this.status = this.$route.params.status
-		}
-	}
+
+	beforeRouteUpdate(to, from, next) {
+		this.status = to.params.status
+		next();
+	},
+
+	// $route(to, from) {
+	// 	this.status = this.$route.params.status
+
+	// 	if (to.path == '/main/index') {
+	// 		from.meta.keepAlive = false;
+	// 		// alert('111')
+	// 	}
+	// }
+
+	// beforeRouteLeave(to, from, next) {
+	// 	if (to.path == '/orderDetail') {
+	// 		from.meta.keepAlive = true;
+	// 	} if (to.path == '/main/index') {
+	// 		from.meta.keepAlive = false;
+	// 	}
+
+	// 	next();
+	// }
 };
 </script>
 
@@ -86,7 +107,19 @@ export default {
 	.order-content
 		// padding-bottom 0.26rem
 	.mint-navbar .mint-tab-item
-		padding 0.3rem 0
+		box-sizing border-box
+		padding 0
+		display inline-block
+		height 100%
+		.mint-tab-item-label
+			height 100%
+			a
+				display flex
+				align-items center
+				justify-content center
+				// display block
+				width 100%
+				height 100%
 	.order-navbar
 		height 0.77rem
 		box-sizing border-box

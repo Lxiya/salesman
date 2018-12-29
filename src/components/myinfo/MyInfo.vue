@@ -16,22 +16,22 @@
 			<div class="info-content">
 				<div class="content-operation">
 					<mt-cell title="修改密码" to="/changePassword" is-link>
-						<img slot="icon" src="/static/images/change-password.png" class="oper-icon">
+						<img slot="icon" src="static/images/change-password.png" class="oper-icon">
 					</mt-cell>
 				</div>
 				<div class="content-operation">
-					<mt-cell title="清除缓存"  is-link>
-						<img slot="icon" src="/static/images/clear-cache.png" class="oper-icon clear-icon">
+					<mt-cell title="清除缓存" is-link>
+						<img slot="icon" src="static/images/clear-cache.png" class="oper-icon clear-icon">
 					</mt-cell>
 				</div>
 				<div class="content-operation">
 					<mt-cell title="如何使用" is-link>
-						<img slot="icon" src="/static/images/how-use.png" class="oper-icon">
+						<img slot="icon" src="static/images/how-use.png" class="oper-icon">
 					</mt-cell>
 				</div>
 				<div class="content-operation">
 					<mt-cell title="关于我们" is-link>
-						<img slot="icon" src="/static/images/about.png" class="oper-icon about-icon">
+						<img slot="icon" src="static/images/about.png" class="oper-icon about-icon">
 					</mt-cell>
 				</div>
 			</div>
@@ -54,6 +54,8 @@ export default {
 	methods: {
 		loginOut() {
 			this.$store.commit("loginOut");
+			console.log(JSON.parse(localStorage.getItem('user')))
+
 		}
 	},
 	mounted() {
@@ -61,7 +63,7 @@ export default {
 		this.userNumber = this.$store.getters.userInfo.number;
 		this.name = this.$store.getters.userInfo.name;
 	}
-};
+}
 </script>
 
 <style lang="stylus">
@@ -71,7 +73,7 @@ export default {
 	.info-header
 		width 100%
 		height 4.62rem
-		background url('/static/images/my-info-bg.png')
+		background-image url('my-info-bg.png')
 		background-size cover
 		.info-logout
 			text-align right

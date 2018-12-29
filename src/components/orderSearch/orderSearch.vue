@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="change-password">
-			<sale-top :title="title" :showBack="showBack" :where="where"></sale-top>
+			<sale-top :title="title" :showBack="showBack" :goBack="toBack" :status="status"></sale-top>
 			<div class="change-input">
 				<mt-field label="店铺名称" placeholder="请输入店铺名称" type="text" v-model="storeName"></mt-field>
 			</div>
@@ -63,7 +63,7 @@
 import Top from "components/common/Top";
 
 export default {
-	name: "ChagePassword",
+	name: "OrderSearch",
 	components: {
 		"sale-top": Top
 	},
@@ -71,10 +71,12 @@ export default {
 		return {
 			uerTel: "",
 			status: "",
+
 			//控制样式
 			title: "订单查询",
 			showBack: true,
-			where: "order",
+			// goBack: '/order/status/' + status + '',
+
 			// 控制数据绑定
 			storeName: "",
 			orderNumber: "",
@@ -84,6 +86,11 @@ export default {
 			inputStartTime: "",
 			inputEndTime: ""
 		};
+	},
+	computed: {
+		toBack() {
+			return '/order/status/' + this.status + ''
+		}
 	},
 	methods: {
 		openStartPicker() {
@@ -163,6 +170,7 @@ export default {
 	mounted() {
 		this.uerTel = this.$store.getters.userInfo.telePhone;
 		this.status = this.$route.query.status;
+		// console.log(this.status)
 		// let date = new Date();
 		// let dateFormat =
 		// 	date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();

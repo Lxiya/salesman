@@ -64,10 +64,7 @@ const routes = [
     children: [
       {
         path: 'status/:status',
-        component: StatusList,
-        meta: {
-          keepAlive: true
-        }
+        component: StatusList
       }
     ]
   },
@@ -80,7 +77,7 @@ const routes = [
     component: OrderDetail
   },
   {
-    path: '/OrderSearch',
+    path: '/orderSearch',
     component: OrderSearch
   },
   {
@@ -104,11 +101,8 @@ const store = new Vuex.Store({
     },
     // 用户退出,清除本地保存的登录信息
     loginOut(state) {
-      if (state.user) {
-        state.user = null
-      } else if (JSON.parse(localStorage.getItem('user'))) {
-        localStorage.removeItem('user')
-      }
+      state.user = null
+      localStorage.removeItem('user')
       router.push('/login')
     }
   },

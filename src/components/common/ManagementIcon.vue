@@ -8,17 +8,15 @@
 
 <script>
 export default {
-	name:"ManagementIcon"
+	name: "ManagementIcon"
 };
 </script>
 
 <style lang="stylus" scoped>
-	.icon{
-		img{
-			display block
-			width 0.6rem
-			height 0.6rem
-		}
-	}
+.icon
+	img
+		display block
+		width 0.6rem
+		height 0.6rem
 </style>
 

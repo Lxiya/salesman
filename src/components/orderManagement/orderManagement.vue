@@ -2,14 +2,14 @@
 	<div>
 		<div class="order-management">
 			<div class="management-title">
-				<img src="/static/images/management-title.png" alt>
+				<img src="static/images/management-title.png" alt>
 			</div>
 			<div class="management-icon">
 				<div class="icon-list">
 					<router-link :to="{path:'/order/status/2'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.waitSend">{{orderStatusNumber.waitSend}}</i>
-							<img src="/static/images/waiting-deliver.png" alt slot="icon-img">
+							<img src="static/images/waiting-deliver.png" alt slot="icon-img">
 							<h1 slot="icon-name">待发货</h1>
 						</sale-management-icon>
 					</router-link>
@@ -17,7 +17,7 @@
 					<router-link :to="{path:'/order/status/3'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.hadSend">{{orderStatusNumber.hadSend}}</i>
-							<img src="/static/images/finished-deliver.png" alt slot="icon-img">
+							<img src="static/images/finished-deliver.png" alt slot="icon-img">
 							<h1 slot="icon-name">已发货</h1>
 						</sale-management-icon>
 					</router-link>
@@ -25,7 +25,7 @@
 					<router-link :to="{path:'/order/status/4'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.received">{{orderStatusNumber.received}}</i>
-							<img src="/static/images/finished-accpect.png" alt slot="icon-img">
+							<img src="static/images/finished-accpect.png" alt slot="icon-img">
 							<h1 slot="icon-name">已收货</h1>
 						</sale-management-icon>
 					</router-link>
@@ -34,15 +34,15 @@
 					<router-link :to="{path:'/order/status/5'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.finished">{{orderStatusNumber.finished}}</i>
-							<img src="/static/images/finished.png" alt slot="icon-img" class="finished">
+							<img src="static/images/finished.png" alt slot="icon-img" class="finished">
 							<h1 slot="icon-name">已完成</h1>
 						</sale-management-icon>
 					</router-link>
 
 					<router-link :to="{path:'/order/status/0'}">
 						<sale-management-icon>
-						<i slot="icon-number" v-show="orderStatusNumber.close">{{orderStatusNumber.close}}</i>
-							<img src="/static/images/closed.png" alt slot="icon-img">
+							<i slot="icon-number" v-show="orderStatusNumber.close">{{orderStatusNumber.close}}</i>
+							<img src="static/images/closed.png" alt slot="icon-img">
 							<h1 slot="icon-name">已关闭</h1>
 						</sale-management-icon>
 					</router-link>
@@ -50,7 +50,7 @@
 					<router-link :to="{path:'/order/status/6'}">
 						<sale-management-icon>
 							<i slot="icon-number" v-show="orderStatusNumber.allOrder">{{orderStatusNumber.allOrder}}</i>
-							<img src="/static/images/all-orders.png" alt slot="icon-img">
+							<img src="static/images/all-orders.png" alt slot="icon-img">
 							<h1 slot="icon-name">全部订单</h1>
 						</sale-management-icon>
 					</router-link>

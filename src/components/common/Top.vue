@@ -1,8 +1,8 @@
 <template>
 	<mt-header :title="title" :fixed="fixed">
-		<!-- <router-link :to="where" slot="left" v-if="showBack" > -->
-		<mt-button icon="back" slot="left" v-if="showBack" @click="goBack"></mt-button>
-		<!-- </router-link> -->
+		<router-link :to="goBack" slot="left" v-if="showBack">
+			<mt-button icon="back"></mt-button>
+		</router-link>
 		<router-link :to="search + '?status=' + status " slot="right" v-if="showSearch">
 			<mt-button icon="search"></mt-button>
 		</router-link>
@@ -17,6 +17,7 @@ export default {
 		showBack: Boolean,
 		showSearch: Boolean,
 		search: String,
+		goBack: String,
 		status: [Number, String]
 	},
 	data() {
@@ -24,10 +25,8 @@ export default {
 			fixed: true
 		};
 	},
-	methods: {
-		goBack() {
-			this.$router.go(-1);
-		}
+	mounted() {
+		// console.log(this.status)
 	}
 };
 </script>

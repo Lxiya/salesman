@@ -44,7 +44,11 @@ p {
 	font-size: 0.42rem;
 }
 .order .mint-tab-item-label {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 	font-size: 0.28rem;
+	height: 100%;
 }
 ul {
 	margin: 0;

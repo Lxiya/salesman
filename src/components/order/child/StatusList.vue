@@ -68,9 +68,6 @@ export default {
 						this.loading = false;
 						this.page++;
 
-						console.log(this.orderList.length);
-						console.log(reponse.data.total);
-
 						if (this.orderList.length === reponse.data.total) {
 							this.finished = true;
 						}
@@ -95,6 +92,10 @@ export default {
 					reponse = reponse.body;
 
 					this.orderList = reponse.data.list;
+					if (this.orderList.length == 0) {
+						var scrollLength = document.body.clientHeight
+						window.scrollTo(0, scrollLength);
+					}
 				});
 		}
 	},
@@ -104,33 +105,14 @@ export default {
 		this.requestData();
 	},
 	beforeRouteUpdate(to, from, next) {
-		if (!to.meta.clicked) {
-			to.meta.keepAlive = false;
-		}
-
-		from.meta.clicked = true;
-		to.meta.clicked = true;
-
 		// 重置请求参数
 		this.status = to.params.status;
 		this.page = 1;
 
 		this.requestData();
 		next();
-	},
-	beforeRouteLeave(to, from, next) {
-		// console.log(to.meta.clicked)
-
-		// if (!to.meta.clicked) {
-		// 	to.meta.keepAlive = false;
-		// }
-
-		from.meta.keepAlive = true;
-
-		// from.meta.clicked = true;
-		// to.meta.clicked = true;
-		next();
 	}
+
 };
 </script>
 

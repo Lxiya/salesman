@@ -4,13 +4,13 @@
 		<div class="login-form">
 			<div class="from-group">
 				<label for="phone-number">
-					<img src="/static/images/phone-number-icon.png" alt class="phone-number">
+					<img src="static/images/phone-number-icon.png" alt class="phone-number">
 				</label>
 				<input placeholder="请输入手机号码" type="text" id="phone-number" v-model="phoneNumber">
 			</div>
 			<div class="from-group">
 				<label for="phone-number">
-					<img src="/static/images/password-icon.png" alt>
+					<img src="static/images/password-icon.png" alt>
 				</label>
 				<input
 					placeholder="请输入密码"
@@ -27,6 +27,7 @@
 
 <script>
 import { Indicator } from "mint-ui";
+import { Toast } from 'mint-ui';
 import Top from "components/common/Top";
 
 export default {
@@ -44,6 +45,16 @@ export default {
 	},
 	methods: {
 		login() {
+
+			if (this.phoneNumber.trim() == '' || this.password.trim() == '') {
+				Toast({
+					message: '请输入用户名和密码',
+					position: 'bottom',
+					duration: 5000
+				});
+				return false
+			}
+
 			Indicator.open();
 			this.$http
 				.get("/app/sale/saleLogin", {
@@ -56,19 +67,34 @@ export default {
 					response = response.body;
 					Indicator.close();
 					this.user = response.data;
+					console.log(this.user)
 
-					this.$router.push("/main/index");
-					//登录后本地保存登录用户的信息
-					this.$store.commit("login", this.user);
-					window.jstoandroid.resgiterJpush(this.user.id);
+					if (this.user) {
+						this.$router.push("/main/index");
+						//登录后本地保存登录用户的信息
+						this.$store.commit("login", this.user);
+						jstoandroid.resgiterJpush(this.user.id);
+					} else {
+						Toast({
+							message: '用户名或密码错误',
+							position: 'bottom',
+							duration: 5000
+						});
+					}
+					// } else {
+					// 	Toast({
+					// 		message: '用户名或密码错误',
+					// 		position: 'bottom',
+					// 		duration: 5000
+					// 	});
+					// }
+
+
 				});
 		}
 	},
 	created() {
-		if (
-			localStorage.getItem("user") != null ||
-			localStorage.getItem("user") != undefined
-		) {
+		if (localStorage.getItem("user")) {
 			this.$router.push("main/index");
 		}
 	}

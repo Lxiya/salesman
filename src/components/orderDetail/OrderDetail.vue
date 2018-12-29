@@ -12,7 +12,7 @@
 				<div class="wrapper accpect-wrapper">
 					<div class="accpect-info">
 						<div class="location-icon">
-							<img src="/static/images/location.png" alt>
+							<img src="static/images/location.png" alt>
 						</div>
 						<div class="accpect-account">
 							<div class="name-phone">
@@ -61,6 +61,7 @@ export default {
 			.then(reponse => {
 				reponse = reponse.body;
 				this.order = reponse.data;
+				console.log(this.order)
 			});
 	}
 };

@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div class="change-password">
-			<sale-top :title="title" :showBack="showBack" :where="where"></sale-top>
+			<sale-top :title="title" :showBack="showBack" :where="where" :goBack="goBack"></sale-top>
 			<div class="change-input">
 				<div class="from-item">
 					<mt-field
@@ -54,7 +54,7 @@ export default {
 			//控制样式
 			title: "修改密码",
 			showBack: true,
-			where: "main/myinfo",
+			goBack: "main/myinfo",
 			disabled: true,
 			// 控制数据绑定
 			password: "",
@@ -65,7 +65,7 @@ export default {
 		};
 	},
 	watch: {
-		repeatNewPassword: function() {
+		repeatNewPassword: function () {
 			// if(this.repeatNewPassword)
 			if (this.repeatNewPassword !== "") {
 				this.repeatNewPassword === this.newPassword
@@ -78,7 +78,7 @@ export default {
 				this.evalPassword = "";
 			}
 		},
-		newPassword: function() {
+		newPassword: function () {
 			if (this.repeatNewPassword !== "" && this.newPassword !== "") {
 				this.repeatNewPassword === this.newPassword
 					? (this.evalPassword = "success")
@@ -87,7 +87,7 @@ export default {
 				this.evalPassword = "";
 			}
 		},
-		password: function() {
+		password: function () {
 			this.confirmOldPassword();
 		}
 	},
@@ -124,7 +124,7 @@ export default {
 						iconClass: "icon icon-success"
 					});
 					setTimeout(() => {
-						this.$router.push("/login");
+						this.$store.commit("loginOut");
 					}, 2000);
 				});
 		}
