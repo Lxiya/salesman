@@ -2,7 +2,7 @@
 	<div>
 		<div class="order-detail">
 			<div class="order-top">
-				<sale-top :title="title" :showBack="showBack"></sale-top>
+				<sale-top :title="title" :lastPage="lastPage"></sale-top>
 			</div>
 			<div class="order-content">
 				<div class="order-status">
@@ -23,7 +23,6 @@
 						</div>
 					</div>
 				</div>
-
 				<sale-order-item-detail :buyer="order"></sale-order-item-detail>
 			</div>
 		</div>
@@ -40,10 +39,11 @@ export default {
 		return {
 			orderId: "",
 			order: {},
+			status: '',
 
 			// 控制显示
 			title: "订单详情",
-			showBack: true
+			lastPage: true
 		};
 	},
 	components: {
@@ -61,7 +61,7 @@ export default {
 			.then(reponse => {
 				reponse = reponse.body;
 				this.order = reponse.data;
-				console.log(this.order)
+
 			});
 	}
 };

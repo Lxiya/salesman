@@ -15,7 +15,7 @@
 			<div class="income-order">
 				<div class="income-order-show">
 					<div class="order-number">
-						<router-link to="/currentOrder">
+						<router-link to="/currentOrder/todayOrder">
 							<div class="number-show">
 								<h1 class="number-text">今日有效订单</h1>
 								<p class="number" v-if="orderStatusNumber.orderNum">
@@ -28,7 +28,7 @@
 					</div>
 					<div class="split"></div>
 					<div class="income-number">
-						<router-link to="/currentOrder">
+						<router-link to="/currentOrder/todayOrder">
 							<div class="number-show">
 								<h1 class="number-text">今日订单收入</h1>
 								<p class="number" v-if="orderStatusNumber.reality">

@@ -43,7 +43,7 @@
 
 			<div class="wrapper">
 				<div class="order-operation">
-					<router-link :to="{path:'/orderDetail',query:{id:buyer.id}}">
+					<router-link :to="{path:'/orderDetail',query:{id:buyer.id,status:1}}">
 						<span class="btn-detail">订单详情</span>
 					</router-link>
 
@@ -60,7 +60,12 @@ export default {
 	name: "OrderItem",
 	props: {
 		buyer: Object
-	}
+	},
+	// computed: {
+	// 	status() {
+	// 		return this.$route.query.status;
+	// 	}
+	// }
 };
 </script>
 

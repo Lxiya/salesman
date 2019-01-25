@@ -20,6 +20,7 @@ import OrderSearch from 'components/orderSearch/OrderSearch'
 import MyInfo from 'components/myinfo/MyInfo'
 import ChangePassword from 'components/myinfo/child/ChangePassword'
 import CurrentOrder from 'components/currentOrder/CurrentOrder'
+import TodayOrder from 'components/currentOrder/child/TodayOrder'
 import OrderDetail from 'components/orderDetail/OrderDetail'
 import StatusList from 'components/order/child/StatusList'
 
@@ -50,6 +51,10 @@ const routes = [
     ]
   },
   {
+    path: '/',
+    component: Login
+  },
+  {
     path: '/login',
     component: Login
   },
@@ -70,7 +75,13 @@ const routes = [
   },
   {
     path: '/currentOrder',
-    component: CurrentOrder
+    component: CurrentOrder,
+    children: [
+      {
+        path: 'todayOrder',
+        component: TodayOrder
+      }
+    ]
   },
   {
     path: '/orderDetail',

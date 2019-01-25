@@ -54,8 +54,6 @@ export default {
 	methods: {
 		loginOut() {
 			this.$store.commit("loginOut");
-			console.log(JSON.parse(localStorage.getItem('user')))
-
 		}
 	},
 	mounted() {

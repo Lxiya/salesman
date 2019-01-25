@@ -1,9 +1,13 @@
 <template>
 	<mt-header :title="title" :fixed="fixed">
-		<router-link :to="goBack" slot="left" v-if="showBack">
+		<!-- 返回指定页按钮 -->
+		<router-link v-if="showBack" :to="goBack" slot="left">
 			<mt-button icon="back"></mt-button>
 		</router-link>
-		<router-link :to="search + '?status=' + status " slot="right" v-if="showSearch">
+		<!-- 返回上一页按钮 -->
+		<mt-button v-if="lastPage" @click="goLastPage" icon="back" slot="left"></mt-button>
+		<!-- 搜索按钮 -->
+		<router-link v-if="showSearch" :to="search + '?status=' + status " slot="right">
 			<mt-button icon="search"></mt-button>
 		</router-link>
 	</mt-header>
@@ -15,6 +19,7 @@ export default {
 	props: {
 		title: String,
 		showBack: Boolean,
+		lastPage: Boolean,
 		showSearch: Boolean,
 		search: String,
 		goBack: String,
@@ -25,8 +30,10 @@ export default {
 			fixed: true
 		};
 	},
-	mounted() {
-		// console.log(this.status)
+	methods: {
+		goLastPage() {
+			this.$router.go(-1)
+		}
 	}
 };
 </script>

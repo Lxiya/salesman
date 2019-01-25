@@ -75,7 +75,6 @@ export default {
 			//控制样式
 			title: "订单查询",
 			showBack: true,
-			// goBack: '/order/status/' + status + '',
 
 			// 控制数据绑定
 			storeName: "",
@@ -101,23 +100,6 @@ export default {
 		},
 		// 获取查询参数并跳转
 		orderSearch() {
-			// this.userTel = this.$store.getters.userInfo.telePhone;
-			// this.status = this.$route.params.status;
-			// this.$http.get('/app/sale/search', {
-			// 	params: {
-			// 		phone: this.userTel,
-			// 		status: this.status,
-			// 		shopName: this.storeName,
-			// 		number: this.orderNumber,
-			// 		buyerTel: this.buyerTel,
-			// 		startTime: this.inputStartTime,
-			// 		endTime: this.inputEndTime,
-			// 		page: 1,
-			// 		size: 5
-			// 	}			}).then(reponse => {
-			// 	reponse = reponse.body;
-			// 	console.log(reponse)			})
-			// this.$route.push('')
 			this.$router.push({
 				path: "/searchResult",
 				query: {
@@ -147,35 +129,9 @@ export default {
 			this.inputEndTime = this.formatDate(selectedDate);
 		}
 	},
-	// computed: {
-	// 	startTimeFormat: {
-	// 		get: function () {
-	// 			let date = new Date(this.startTime);
-	// 			return (date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
-	// 		},
-	// 		set: function (value) {
-	// 			this.startTime = value
-	// 		}
-	// 	},
-	// 	endTimeFormat: {
-	// 		get: function () {
-	// 			let date = new Date(this.endTime);
-	// 			return (date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate());
-	// 		},
-	// 		set: function (value) {
-	// 			this.endTime = value
-	// 		}
-	// 	}
-	// },
 	mounted() {
 		this.uerTel = this.$store.getters.userInfo.telePhone;
 		this.status = this.$route.query.status;
-		// console.log(this.status)
-		// let date = new Date();
-		// let dateFormat =
-		// 	date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-		// this.startTime = dateFormat;
-		// this.endTime = dateFormat;
 	}
 };
 </script>

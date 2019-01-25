@@ -63,36 +63,15 @@ export default {
 			goBack: '/main/index'
 		};
 	},
-
 	mounted() {
 		this.status = this.$route.params.status;
 		this.selected = this.$route.params.status.toString()
 	},
 	//监听路由变化
-
 	beforeRouteUpdate(to, from, next) {
 		this.status = to.params.status
 		next();
 	},
-
-	// $route(to, from) {
-	// 	this.status = this.$route.params.status
-
-	// 	if (to.path == '/main/index') {
-	// 		from.meta.keepAlive = false;
-	// 		// alert('111')
-	// 	}
-	// }
-
-	// beforeRouteLeave(to, from, next) {
-	// 	if (to.path == '/orderDetail') {
-	// 		from.meta.keepAlive = true;
-	// 	} if (to.path == '/main/index') {
-	// 		from.meta.keepAlive = false;
-	// 	}
-
-	// 	next();
-	// }
 };
 </script>
 

@@ -51,7 +51,7 @@ export default {
 			let page = this.page + 1;
 			setTimeout(() => {
 				this.$http
-					.get("/app/sale/selectOrderListByStatus", {
+					.get("/app/sale/effectiveOrder", {
 						params: {
 							phone: this.userTel,
 							status: this.status,
@@ -65,6 +65,7 @@ export default {
 						this.orderList = this.orderList.concat(reponse.data.list);
 
 						this.total = reponse.data.total;
+						console.log(reponse.data.total)
 						this.loading = false;
 						this.page++;
 
@@ -79,10 +80,9 @@ export default {
 			this.finished = false;
 			Indicator.open();
 			this.$http
-				.get("/app/sale/selectOrderListByStatus", {
+				.get("/app/sale/effectiveOrder", {
 					params: {
 						phone: this.userTel,
-						status: this.status,
 						page: this.page,
 						size: 5
 					}
@@ -104,16 +104,7 @@ export default {
 		this.status = this.$route.params.status;
 		this.userTel = this.$store.getters.userInfo.telePhone;
 		this.requestData();
-	},
-	beforeRouteUpdate(to, from, next) {
-		// 重置请求参数
-		this.status = to.params.status;
-		this.page = 1;
-
-		this.requestData();
-		next();
 	}
-
 };
 </script>
 
